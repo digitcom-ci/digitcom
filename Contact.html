@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitCom</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        .logo{
+            width: 120px;
+            height: auto;
+        }
+
+        .custom-navbar {
+            background-color: #3f373c;
+        }
+
+        .custom-navbar .nav-link {
+            color: #fff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover {
+            color: #ffccbc;
+            transform: scale(1.1);
+        }
+
+        .custom-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #e9290f;
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        body{
+            padding-top: 70px; /* Ajuste selon la taille de la navbar */
+            font-family: 'Kanit', sans-serif;
+            background-color: #f4f6f8;
+            
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link.active {
+    color: #e9290f; /* Couleur personnalisée */
+    font-weight: bold; /* Texte en gras */
+    border-bottom: 2px solid #e9290f; /* Ligne soulignée pour marquer l'élément actif */
+}
+
+.custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .contact-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .contact-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #3f373c;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            box-shadow: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+        }
+
+        .form-control::placeholder {
+            font-style: italic;
+            color: #888;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+            .contact-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 50px;
+            color: #3f373c;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .form-container .form-control {
+            border-radius: 50px;
+            box-shadow: none;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .form-container .form-control:focus {
+            border-color: #3f373c;
+            box-shadow: 0 0 5px rgba(74, 20, 140, 0.4);
+        }
+
+        .form-container button {
+            background-color: #3f373c;
+            color: #fff;
+            border-radius: 50px;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #3f373c;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .icon-container i {
+            font-size: 50px;
+            color: #3f373c;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-container i:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-details {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+       
+        /* Style du bouton */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;  /* Cache le bouton au départ */
+            z-index: 999; /* Pour s'assurer qu'il reste au-dessus des autres éléments */
+            border-radius: 50%; /* Forme circulaire */
+            padding: 15px; /* Taille du bouton */
+            background-color: #d8cbb4;
+            color: #3f373c;
+            border: none;
+            font-size: 24px; /* Taille de l'icône */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Au survol, changer la couleur du bouton */
+        #scrollToTopBtn:hover {
+            background-color: #e9290f;
+        }
+
+/* Footer styling */
+.footer {
+    margin-left: 0; /* Pas de marge à gauche pour le footer */
+            margin-right: 0; /* Pas de marge à droite pour le footer */
+            padding: 20px;
+            background-color: #3f373c;
+            color: white;
+            text-align: center;
+}
+
+.footer a {
+    color: #bbb; /* Couleur des liens */
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff; /* Couleur des liens au survol */
+    text-decoration: underline;
+}
+
+.footer h5 {
+    color: #ffffff; /* Titre en blanc */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer .bi {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer .bi:hover {
+    color: #007bff; /* Couleur au survol */
+    transform: scale(1.2); /* Agrandir légèrement */
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+/* Aligner le logo à gauche dans le footer */
+.footer-logo {
+    max-width: 100px; /* Taille maximale du logo */
+    filter: brightness(0) invert(1); /* Ajuster la couleur si le logo est sombre */
+    transition: transform 0.3s ease;
+}
+
+/* Agrandir légèrement le logo au survol */
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Aligner le logo à gauche */
+.text-start {
+    text-align: left;
+}
+
+/* Animation pour les liens du footer */
+.footer a {
+    color: #bbb; /* Couleur initiale des liens */
+    transition: all 0.3s ease; /* Transition fluide sur toutes les propriétés */
+    position: relative; /* Nécessaire pour le pseudo-élément */
+}
+
+/* Effet au survol */
+.footer a:hover {
+    color: #fff; /* Couleur du lien au survol */
+    transform: scale(1.1); /* Légère augmentation de la taille */
+}
+
+/* Ajout d'un soulignement dynamique sous les liens */
+.footer a::after {
+    content: ''; /* Créer un pseudo-élément */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px; /* Taille du soulignement */
+    background-color: #007bff; /* Couleur du soulignement */
+    transition: width 0.3s ease; /* Animation fluide */
+}
+
+/* Soulignement qui se développe au survol */
+.footer a:hover::after {
+    width: 100%; /* Largeur maximale du soulignement au survol */
+}
+
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo.png" alt="Logo" class="logo me-2" >
+                </a>
+                <!-- Hamburger Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="DG.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="A propos.html">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+ <!-- Contact Section -->
+    <!-- Title -->
+    <h1 class="contact-title animate__animated animate__fadeIn">Contactez-Nous</h1>
+
+    <!-- Contact Form Section -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 form-container animate__animated animate__fadeIn animate__delay-1s">
+                <div class="icon-container">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <form action="#" method="post">
+                    <!-- Nom -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom" required>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                    </div>
+                    <!-- Sujet -->
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Sujet</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                    </div>
+                    <!-- Message -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Écrivez votre message" required></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary w-100">Envoyer le Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Details Section -->
+    <div class="contact-details">
+        <h2>Nos Coordonnées</h2>
+        <p><i class="fas fa-map-marker-alt"></i>Abidjan,Côte d'Ivoire</p>
+        <p><i class="fas fa-phone-alt"></i>+225 0797484729</p>
+        <p><i class="fas fa-envelope"></i>digitcom.abj@gmail.com</p>
+    </div>
+
+<!-- Footer -->
+<footer class="footer text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row">
+            <!-- Section Liens -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-4">Liens rapides</h5>
+                <ul class="list-unstyled">
+                    <li><a class="nav-link" href="DG.html" class="text-white text-decoration-none">Accueil</a></li>
+                    <li><a class="nav-link" href="A propos.html" class="text-white text-decoration-none">À propos</a></li>
+                    <li><a class="nav-link" href="Services.html" class="text-white text-decoration-none">Services</a></li>
+                    <li><a class="nav-link" href="Contact.html" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Section Contact -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-4">Contact</h5>
+                <p><i class="bi bi-envelope me-2"></i>digitcom.abj@gmail.com</p>
+                <p><i class="bi bi-phone me-2"></i>+225 0797484729</p>
+                <p><i class="bi bi-geo-alt me-2"></i>Abidjan,Côte d'Ivoire</p>
+            </div>
+
+            <!-- Section Réseaux sociaux -->
+            <div class="col-md-4 text-center">
+                <h5 class="text-uppercase mb-4">Suivez-nous</h5>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+            </div>
+        </div>
+
+        <!-- Logo à gauche -->
+        <div class="text-start mt-4">
+            <img src="logo.png" alt="Logo DigitCom" class="footer-logo img-fluid">
+        </div>
+
+        <!-- Section Copyright -->
+        <div class="text-center mt-4">
+            <p class="mb-0">&copy; 2024 DigitCom. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+ <!-- Bouton Remonter -->
+ <button id="scrollToTopBtn" class="btn btn-primary btn-lg" onclick="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS et dépendances (version correcte) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Lorsque l'utilisateur fait défiler la page, afficher ou masquer le bouton
+    window.onscroll = function() {toggleScrollButton()};
+
+    function toggleScrollButton() {
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block"; // Afficher le bouton
+        } else {
+            scrollToTopBtn.style.display = "none"; // Cacher le bouton
+        }
+    }
+
+    // Fonction pour remonter en haut de la page
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Défilement en douceur
+    }
+</script>
+
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ AOS.init();
+</script>
+
+<script>
+ // Dynamique pour les pages multiples
+ const currentPath = window.location.pathname;
+
+ document.querySelectorAll('.nav-link').forEach(link => {
+     if (link.getAttribute('href') === currentPath) {
+         link.classList.add('active');
+     } else {
+         link.classList.remove('active');
+     }
+ });
+</script>
+
+
+</body>
+</html>

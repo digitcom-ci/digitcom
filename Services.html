@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitCom</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        .logo{
+            width: 120px;
+            height: auto;
+        }
+
+        .custom-navbar {
+            background-color: #3f373c;
+        }
+
+        .custom-navbar .nav-link {
+            color: #fff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover {
+            color: #ffccbc;
+            transform: scale(1.1);
+        }
+
+        .custom-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #e9290f;
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        body{
+            padding-top: 70px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link.active {
+    color: #e9290f; /* Couleur personnalisée */
+    font-weight: bold; /* Texte en gras */
+    border-bottom: 2px solid #e9290f; /* Ligne soulignée pour marquer l'élément actif */
+}
+
+.section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #343a40;
+        }
+
+        .section-title {
+            font-size: 4rem; /* Taille du titre */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #343a40;
+            animation: zoomInOut 2s infinite; /* Applique l'animation */
+        }
+
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1); /* Taille normale */
+            }
+            50% {
+                transform: scale(1.2); /* Agrandissement à 120% */
+            }
+        }
+
+        .service-row {
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        
+        .service-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Aligne l'icône et la description verticalement */
+    width: 300px; /* Largeur de la carte, ajustez selon vos préférences */
+    height: 350px; /* Hauteur de la carte, ajustez pour avoir la même taille que la description */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+        .service-icon-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #3f373c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .service-icon-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 8rem;
+            color: #d8cbb4;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .service-icon-card:hover .service-icon {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(250, 85, 24, 0.15);
+        }
+        /* Effet dynamique au survol */
+        .service-description {
+            font-size: 1.2rem;
+            color: #333;
+            background-color: #d8cbb4;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;/* Centrer le texte */
+            margin-right: 0; /* Supprimer la marge droite excessive */
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+        /* Effet de survol : Transformation et ombre */
+        .service-description:hover {
+            transform: translateY(-10px) scale(1.05); /* Déplacement et agrandissement */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre portée */
+        }
+
+        .service-description-container {
+            border: none;
+        }
+
+        .dotted-list{
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        .dotted-list li::before {
+         content: "°";
+         margin-right: 10px;
+        }
+        
+        /* Style du bouton */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;  /* Cache le bouton au départ */
+            z-index: 999; /* Pour s'assurer qu'il reste au-dessus des autres éléments */
+            border-radius: 50%; /* Forme circulaire */
+            padding: 15px; /* Taille du bouton */
+            background-color: #d8cbb4;
+            color: #3f373c;
+            border: none;
+            font-size: 24px; /* Taille de l'icône */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Au survol, changer la couleur du bouton */
+        #scrollToTopBtn:hover {
+            background-color: #e9290f;
+        }
+
+/* Footer styling */
+.footer {
+    background-color: #3f373c; /* Couleur sombre */
+    color: #bbb; /* Couleur texte gris clair */
+}
+
+.footer a {
+    color: #bbb; /* Couleur des liens */
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff; /* Couleur des liens au survol */
+    text-decoration: underline;
+}
+
+.footer h5 {
+    color: #ffffff; /* Titre en blanc */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer .bi {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer .bi:hover {
+    color: #007bff; /* Couleur au survol */
+    transform: scale(1.2); /* Agrandir légèrement */
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+/* Aligner le logo à gauche dans le footer */
+.footer-logo {
+    max-width: 100px; /* Taille maximale du logo */
+    filter: brightness(0) invert(1); /* Ajuster la couleur si le logo est sombre */
+    transition: transform 0.3s ease;
+}
+
+/* Agrandir légèrement le logo au survol */
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Aligner le logo à gauche */
+.text-start {
+    text-align: left;
+}
+
+/* Animation pour les liens du footer */
+.footer a {
+    color: #bbb; /* Couleur initiale des liens */
+    transition: all 0.3s ease; /* Transition fluide sur toutes les propriétés */
+    position: relative; /* Nécessaire pour le pseudo-élément */
+}
+
+/* Effet au survol */
+.footer a:hover {
+    color: #fff; /* Couleur du lien au survol */
+    transform: scale(1.1); /* Légère augmentation de la taille */
+}
+
+/* Ajout d'un soulignement dynamique sous les liens */
+.footer a::after {
+    content: ''; /* Créer un pseudo-élément */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px; /* Taille du soulignement */
+    background-color: #007bff; /* Couleur du soulignement */
+    transition: width 0.3s ease; /* Animation fluide */
+}
+
+/* Soulignement qui se développe au survol */
+.footer a:hover::after {
+    width: 100%; /* Largeur maximale du soulignement au survol */
+}
+       
+    </style>
+</head>
+<body>
+    <header class="bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo.png" alt="Logo" class="logo me-2">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="DG.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="A propos.html">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+      <!-- Section Services -->
+    <div class="container py-5">
+        <h1 class="section-title animate-alert">NOS SERVICES</h1>
+        <div class="row service-row">
+            <!-- Marketing Digital -->
+            <div class="col-md-2">
+                <div class="service-icon-card">
+                    <i class="bi bi-megaphone service-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="service-description">
+                    <h3 class="service-title">Marketing Digital</h3>
+                    <p>Nous conseillons de nombreuses marques à-propos de leur stratégie digitale sur les réseaux sociaux en leur apportons tout le conseil
+                         nécessaire pour réussir. Tout d’abord, nous les orientons vers les réseaux sociaux les plus adaptés à leur activité. Dont le but
+                          d’améliorer leur positionnement, et l’animation de ces plateformes. Tout en maîtrisant leur budget. Nous concevons des contenus graphiques 
+                          efficaces adaptés à leur besoin ainsi nous gérons la publication de celles-ci.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row service-row">
+            <!-- Création de site web -->
+            <div class="col-md-2">
+                <div class="service-icon-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="service-description">
+                    <h3 class="service-title">Création de site web</h3>
+                    <p>Grâce au service Création de site web, votre savoir-faire sera mis en valeur. Votre image de marque sera affirmée à l’aide d’un site web 
+                      , qui vous démarquera et augmentera votre notoriété. Nous développons des sites web sur-mesure qui correspondent à tous vos besoins :
+                        <ul class="dotted-list">
+                            <li>Site Web ( Vitrine – e-Commerce – Blog )</li>
+                            <li>Nom de Domains</li>
+                            <li>Hébergement</li>
+                            <li>Site web Responsive</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row service-row">
+            <!-- Gestion des réseaux sociaux -->
+            <div class="col-md-2">
+                <div class="service-icon-card">
+                    <i class="fas fa-thumbs-up service-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="service-description">
+                    <h3 class="service-title">Gestion des réseaux sociaux</h3>
+                    <p>"Maîtrisez votre présence en ligne avec notre expertise en gestion de réseaux sociaux. Nous créons des stratégies sur-mesure pour engager votre 
+                        audience, renforcer votre image de marque et maximiser votre impact digital. De la gestion quotidienne à l'analyse des performances, nous vous
+                         accompagnons pour propulser votre communication et créer des interactions authentiques."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row service-row">
+            <!-- Création de contenu -->
+            <div class="col-md-2">
+                <div class="service-icon-card">
+                    <i class="bi bi-pencil-square service-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="service-description">
+                    <h3 class="service-title">Création de contenu</h3>
+                    <p>Donnez vie à votre marque avec du contenu créatif, percutant et stratégiquement conçu. Notre équipe transforme vos idées en histoires
+                         captivantes, enrichies d'images et de messages qui résonnent avec votre audience. Nous concevons du contenu qui engage, inspire et renforce votre 
+                         présence digitale. Boostez votre visibilité et vos résultats grâce à des messages authentiques et ciblés.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row service-row">
+            <!-- Création de marque -->
+            <div class="col-md-2">
+                <div class="service-icon-card">
+                    <i class="bi bi-palette service-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="service-description">
+                    <h3 class="service-title">Création de marque</h3>
+                    <p>Nous façonnons des marques uniques, distinctives et mémorables. Grâce à une approche stratégique et créative, nous donnons vie à l'identité de votre
+                         entreprise, en créant une image cohérente qui résonne profondément auprès de votre public cible. De l'élaboration du logo à la définition du ton et
+                          des valeurs, nous transformons votre vision en une marque forte, prête à se démarquer et à conquérir le marché.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Footer -->
+   <footer class="footer text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row">
+            <!-- Section Liens -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-4">Liens rapides</h5>
+                <ul class="list-unstyled">
+                    <li><a href="DG.html" class="text-white text-decoration-none">Accueil</a></li>
+                    <li><a href="A propos.html" class="text-white text-decoration-none">À propos</a></li>
+                    <li><a href="Services.html" class="text-white text-decoration-none">Services</a></li>
+                    <li><a href="Contact.html" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Section Contact -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-4">Contact</h5>
+                <p><i class="bi bi-envelope me-2"></i>digitcom.abj@gmail.com</p>
+                <p><i class="bi bi-phone me-2"></i>+225 0797484729</p>
+                <p><i class="bi bi-geo-alt me-2"></i>Abidja,Côte d'Ivoire</p>
+            </div>
+
+            <!-- Section Réseaux sociaux -->
+            <div class="col-md-4 text-center">
+                <h5 class="text-uppercase mb-4">Suivez-nous</h5>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+            </div>
+        </div>
+
+        <!-- Logo à gauche -->
+        <div class="text-start mt-4">
+            <img src="logo.png" alt="Logo DigitCom" class="footer-logo img-fluid">
+        </div>
+
+        <!-- Section Copyright -->
+        <div class="text-center mt-4">
+            <p class="mb-0">&copy; 2024 DigitCom. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+  <!-- Bouton Remonter -->
+  <button id="scrollToTopBtn" class="btn btn-primary btn-lg" onclick="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS et dépendances (version correcte) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Lorsque l'utilisateur fait défiler la page, afficher ou masquer le bouton
+    window.onscroll = function() {toggleScrollButton()};
+
+    function toggleScrollButton() {
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block"; // Afficher le bouton
+        } else {
+            scrollToTopBtn.style.display = "none"; // Cacher le bouton
+        }
+    }
+
+    // Fonction pour remonter en haut de la page
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Défilement en douceur
+    }
+</script>
+
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ AOS.init();
+</script>
+
+<script>
+ // Dynamique pour les pages multiples
+ const currentPath = window.location.pathname;
+
+ document.querySelectorAll('.nav-link').forEach(link => {
+     if (link.getAttribute('href') === currentPath) {
+         link.classList.add('active');
+     } else {
+         link.classList.remove('active');
+     }
+ });
+</script>
+
+</body>
+</html>

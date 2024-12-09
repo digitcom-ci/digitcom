@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitCom</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        .logo{
+            width: 120px;/*remplacez par la largeur souhaitée*/
+            height: auto;/* garde les proportions*/
+        }
+    .custom-navbar {
+        background-color: #3f373c; /* Couleur de votre choix */
+    }
+
+    .custom-navbar .nav-link {
+        color: #fff; /* Couleur des liens */
+        font-size: 1.1rem;
+            text-transform: uppercase;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* animation au survol*/
+    .custom-navbar .nav-link:hover {
+        color: #ffccbc; /* Couleur au survol */
+        transform: scale(1.1); /* Zoom léger */
+    }
+      /* Animation avec une ligne sous le lien */
+      .custom-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #e9290f; /* Couleur de la ligne */
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%; /* Ligne sous le lien */
+        }
+        .banner {
+            background: url('images/cover1.jpeg') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .banner .btn-contact {
+            background-color: #e9290f; /* Couleur personnalisée */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .banner .btn-contact:hover {
+            background-color: #e64a19; /* Couleur au survol */
+            color: #fff;
+        }
+        /* Section Slogan */
+.slogan-section {
+    background-color: #f8f9fa;
+}
+/* Style général de la section */
+.slogan-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Style du bouton dynamique */
+.btn-dynamic {
+    background-color: #007bff; /* Couleur de fond initiale */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-dynamic:hover {
+    background-color: #0056b3; /* Couleur au survol */
+    color: #e9ecef;
+    transform: scale(1.1); /* Effet d'agrandissement au survol */
+}
+
+.slogan {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+
+        body{
+            padding-top: 70px;/* Ajustez selon la hauteur de votre navbar */
+            font-family: 'Kanit', sans-serif; /* Police générale */
+        }
+
+        .services {
+            background-color: #26c497;
+            padding: 60px 0;
+        }
+        .services h1{
+            color: #4ae7bb;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(226, 22, 22, 0.1);
+            background-color: #ffffff;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(219, 9, 9, 0.15);
+        }
+
+        .service-item i {
+            font-size: 3rem;
+            color: #4a4de7;
+            margin-bottom: 20px;
+        }
+        .service-marketing {
+        background-color: #ff5733; /* Rouge-orangé */
+    }
+
+    .service-web {
+        background-color: #3498db; /* Bleu clair */
+    }
+
+    .service-social {
+        background-color: #27ae60; /* Vert */
+    }
+
+    .service-content {
+        background-color: #8e44ad; /* Violet */
+    }
+
+    .service-branding {
+        background-color: #f1c40f; /* Jaune */
+        height: 212px;
+    }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            color: #717d6c;
+            font-size: 1rem;
+        }
+        /* Texte des titres en gras */
+h1,h2, h3 {
+    font-weight: bold; /* Applique du gras aux titres */
+}
+
+/* Texte des descriptions en gras */
+p {
+    font-weight: 600; /* Utilise une épaisseur moyenne (semi-gras) pour un texte plus lisible */
+}
+ /* Ajout d'une couleur de fond */
+ .services {
+        background-color: #d8cbb4; /* Couleur bleu clair */
+        padding: 60px 0;
+    }
+
+    /* Ajustement des couleurs des textes */
+    .services h1 {
+        color: #2c3e50; /* Titre en bleu foncé */
+    }
+
+    .services p {
+        color: #f4f1f1; /* Texte en gris foncé */
+    }
+    /* Keyframes pour l'animation de mouvement */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px); /* Monte légèrement */
+    }
+    50% {
+        transform: translateY(0); /* Revient à sa position */
+    }
+}
+
+/* Styles par défaut pour les icônes */
+.service-item i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Animation déclenchée au survol */
+.service-item:hover i {
+    animation: bounce 0.5s; /* Animation de rebond */
+}
+/* Section Nouveau Projet */
+.new-project-section {
+    background-color: #d8cbb4; /* Couleur de fond primaire */
+    color: #ffffff; /* Texte blanc */
+    padding: 60px 20px;
+}
+
+.new-project-section h1 {
+    font-size: 3rem; /* Taille du titre */
+    line-height: 1.2;
+}
+
+.new-project-section p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ /* Style du bouton */
+ #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;  /* Cache le bouton au départ */
+            z-index: 999; /* Pour s'assurer qu'il reste au-dessus des autres éléments */
+            border-radius: 50%; /* Forme circulaire */
+            padding: 15px; /* Taille du bouton */
+            background-color: #d8cbb4;
+            color: #3f373c;
+            border: none;
+            font-size: 24px; /* Taille de l'icône */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Au survol, changer la couleur du bouton */
+        #scrollToTopBtn:hover {
+            background-color: #e9290f;
+        }
+
+/* Appliquer aussi aux liens */
+.nav-link {
+    font-weight: bold; /* Liens en gras */
+}
+/* Footer styling */
+.footer {
+    background-color: #3f373c; /* Couleur sombre */
+    color: #bbb; /* Couleur texte gris clair */
+}
+
+.footer a {
+    color: #bbb; /* Couleur des liens */
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff; /* Couleur des liens au survol */
+    text-decoration: underline;
+}
+
+.footer h5 {
+    color: #ffffff; /* Titre en blanc */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer .bi {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer .bi:hover {
+    color: #007bff; /* Couleur au survol */
+    transform: scale(1.2); /* Agrandir légèrement */
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+/* Aligner le logo à gauche dans le footer */
+.footer-logo {
+    max-width: 100px; /* Taille maximale du logo */
+    filter: brightness(0) invert(1); /* Ajuster la couleur si le logo est sombre */
+    transition: transform 0.3s ease;
+}
+
+/* Agrandir légèrement le logo au survol */
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Aligner le logo à gauche */
+.text-start {
+    text-align: left;
+}
+
+/* Animation pour les liens du footer */
+.footer a {
+    color: #bbb; /* Couleur initiale des liens */
+    transition: all 0.3s ease; /* Transition fluide sur toutes les propriétés */
+    position: relative; /* Nécessaire pour le pseudo-élément */
+}
+
+/* Effet au survol */
+.footer a:hover {
+    color: #fff; /* Couleur du lien au survol */
+    transform: scale(1.1); /* Légère augmentation de la taille */
+}
+
+/* Ajout d'un soulignement dynamique sous les liens */
+.footer a::after {
+    content: ''; /* Créer un pseudo-élément */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px; /* Taille du soulignement */
+    background-color: #007bff; /* Couleur du soulignement */
+    transition: width 0.3s ease; /* Animation fluide */
+}
+
+/* Soulignement qui se développe au survol */
+.footer a:hover::after {
+    width: 100%; /* Largeur maximale du soulignement au survol */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="DG.html">
+                    <img src="logo.png" alt="Logo" class="logo me-2" >
+                </a>
+                <!-- Hamburger Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="DG.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="A propos.html">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Bannière -->
+    <section class="banner">
+        <h1>Bienvenue sur notre site</h1>
+        <a href="Contact.html" class="btn btn-contact">Contactez-nous</a>
+    </section>
+     <!-- Section Contact -->
+    <!--Section slogan-->
+    <section class="slogan-section py-5 bg-light">
+        <div class="container text-center">
+            <h1 class="slogan" data-aos="fade-up" data-aos-duration="800" data-aos-offset="100">
+                Nous transformons vos idées en réalité digitale.
+            </h1>
+            <p class="mt-4 lead">
+                DigitCom votre agence de communication digitale, vous propose une large palette de services,
+                 afin de concevoir des solutions sur-mesure <br>pour une stratégie de communication crédible et créative
+                  . Confiez-nous votre communication digitale cela dit booster votre business !
+            </p>
+            <!-- Section À propos -->
+            <a href="A propos.html" class="btn btn-dynamic mt-3">À propos</a>
+        </div>
+    </section>
+    
+
+      <!-- Section Nos Services -->
+       <a href="serviceSection"></a>
+      <section class="services" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <section id="servicesSection">
+                <p class="text-muted"><h3>Découvrez nos services professionnels pour vous accompagner dans vos projets.</h3></p>
+            </div>
+            <div class="row">
+                <!-- Service 1: Marketing Digital -->
+                <div class="col-md-4">
+                    <div class="service-item service-marketing">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>MARKETING DIGITAL</h3>
+                        <p>Boostez votre visibilité en ligne grâce à des campagnes efficaces.</p>
+                    </div>
+                </div>
+                <!-- Service 2: Création de Site Web -->
+                <div class="col-md-4">
+                    <div class="service-item service-web">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>CREATION DE SITE WEB</h3>
+                        <p>Concevez un site web moderne et adapté à vos besoins.</p>
+                    </div>
+                </div>
+                <!-- Service 3: Gestion des Réseaux Sociaux -->
+                <div class="col-md-4">
+                    <div class="service-item service-social"> 
+                        <i class="fas fa-thumbs-up"></i>
+                        <h3>GESTION DES RESEAUX SOCIAUX</h3>
+                        <p>Animez et développez votre présence sur les réseaux sociaux.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ligne centrée pour les services 4 et 5 -->
+            <div class="row justify-content-center mt-4">
+                <!-- Service 4: Création de Contenu -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="service-item service-content">
+                        <i class="fas fa-pencil-alt"></i> 
+                        <h3>CREATION DE CONTENU</h3>
+                        <p>Créez des contenus engageants et adaptés à vos cibles.</p>
+                    </div>
+                </div>
+                <!-- Service 5: Création de Marque -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="service-item service-branding">
+                        <i class="bi bi-palette"></i> 
+                        <h3>CREATION DE MARQUE</h3>
+                        <p>Développez une identité de marque unique et percutante.</p>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+    </section>
+    <section class="new-project-section py-5 text-white">
+        <div class="container text-center" data-aos="fade-up" data-aos-duration="800">
+            <h1 class="display-4 fw-bold">Vous avez un nouveau projet ?</h1>
+            <p class="mt-4 lead">
+                Alors n'hésitez pas à nous contacter ! L'équipe<br> DigitCom est à votre écoute, disponibles pour<br>
+                 répondre à toutes vos questions et demandes.
+            </p>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Section Liens -->
+                <div class="col-md-4">
+                    <h5 class="text-uppercase mb-4">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="DG.html" class="text-white text-decoration-none">Accueil</a></li>
+                        <li><a href="A propos.html" class="text-white text-decoration-none">À propos</a></li>
+                        <li><a href="Services.html" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="Contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Section Contact -->
+                <div class="col-md-4">
+                    <h5 class="text-uppercase mb-4">Contact</h5>
+                    <p><i class="bi bi-envelope me-2"></i>digitcom.abj@gmail.com</p>
+                    <p><i class="bi bi-phone me-2"></i>+225 0797484729</p>
+                    <p><i class="bi bi-geo-alt me-2"></i>Abidjan,Côte d'Ivoire</p>
+                </div>
+    
+                <!-- Section Réseaux sociaux -->
+                <div class="col-md-4 text-center">
+                    <h5 class="text-uppercase mb-4">Suivez-nous</h5>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+                </div>
+            </div>
+    
+            <!-- Logo à gauche -->
+            <div class="text-start mt-4">
+                <img src="logo.png" alt="Logo DigitCom" class="footer-logo img-fluid">
+            </div>
+    
+            <!-- Section Copyright -->
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2024 DigitCom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bouton Remonter -->
+<button id="scrollToTopBtn" class="btn btn-primary btn-lg" onclick="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS et dépendances (version correcte) -->
+<script>
+    // Lorsque l'utilisateur fait défiler la page, afficher ou masquer le bouton
+    window.onscroll = function() {toggleScrollButton()};
+
+    function toggleScrollButton() {
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block"; // Afficher le bouton
+        } else {
+            scrollToTopBtn.style.display = "none"; // Cacher le bouton
+        }
+    }
+
+    // Fonction pour remonter en haut de la page
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Défilement en douceur
+    }
+</script>
+    
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<script>
+    // Dynamique pour les pages multiples
+    const currentPath = window.location.pathname;
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
