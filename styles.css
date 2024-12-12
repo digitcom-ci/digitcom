@@ -1,0 +1,861 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+.menu {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+header {
+  background: #fff;
+  color: #000;
+  padding: 15px 0;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+header nav ul li a {
+  color: #1e2075;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffde5c;
+  transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+header nav ul li a.active::after {
+  width: 100%;
+}
+
+header nav ul li a.active {
+  color: #ffde5c;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: #f1587d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #c0113d;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background-color: #ffde5c;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+  background: url('hero.jpg') no-repeat center center/cover;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-left: 30px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f1587d;
+  margin: 1.5rem;
+
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #000;
+  margin: 1.5rem;
+}
+
+.hero img {
+  width: 100%;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Section de services */
+#services {
+  padding: 2rem 0;
+  background-color: #fff; /* Fond léger */
+  text-align: center;
+}
+
+#services h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #1e2075;
+}
+
+#services h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #1e2075;
+  margin-top: 1rem;
+}
+
+/* Conteneur des cartes */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
+  gap: 20px; /* Espace entre les cartes */
+  margin-top: 20px;
+}
+
+/* Style des cartes */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+}
+
+.card img {
+  width: 70%;
+}
+
+/* Titre de la carte */
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #f04;
+}
+
+/* Texte de la carte */
+.card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Effet au survol */
+.card:hover {
+  transform: translateY(-10px); /* Légère élévation */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Ombre plus intense */
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: none; /* Permet le défilement horizontal */
+}
+
+/* Cartes des services */
+.horizontal-scroll .card {
+  flex: 0 0 30%; /* Largeur de chaque carte */
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center; /* Alignement au centre */
+  transition: transform 0.3s ease;
+  margin-right: 20px;
+  margin-left: 20px;
+  
+}
+
+#prise-en-charge {
+  background: #FDE4F4;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  padding: 1rem 0;
+  color: #000;
+  display: block;
+  align-items: center;
+}
+
+.container img {
+  width: 60%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Conteneur des cartes */
+.avis-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
+  gap: 20px; /* Espace entre les cartes */
+  margin-top: 20px;
+}
+
+/* Cartes de base (avant animation) */
+.card-avis {
+  width: 30%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+  opacity: 0; /* Caché initialement */
+  transform: translateY(-50px); /* Déplacé vers le haut */
+  animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
+  margin-left: 0px;
+  
+}
+
+/* Ajout d'un délai pour chaque carte */
+.card-avis:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card-avis:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card-avis:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Animation "dépôt" */
+@keyframes dropEffect {
+  from {
+    opacity: 0;
+    transform: translateY(-50px); /* Départ plus haut */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Arrêt à la position normale */
+  }
+}
+
+.avis {
+  text-align: center;
+  padding: 1rem 0;
+  color: #1e2075;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.client img {
+  width: 10%;
+  border-radius: 100%;
+  margin-left: -250px;
+  margin-top: 5px;
+}
+
+.nom-business h3 {
+  text-align: left;
+  font-size: 1rem;
+  color: #f1587d;
+  margin-bottom: 5px;
+  margin-left: -250px;
+}
+
+.nom-business p {
+  text-align: left;
+  font-size: 0.7rem;
+  color: #1e2075;
+  margin-left: -250px;
+}
+
+/* Conteneur pour les étoiles */
+.rating {
+  display: flex;
+  gap: 5px; /* Espacement entre les étoiles */
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Étoiles */
+.star {
+  font-size: 20px;
+  color: #ffd700; /* Couleur or pour les étoiles remplies */
+  cursor: pointer; /* Curseur interactif */
+  transition: transform 0.2s ease;
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: none; /* Permet le défilement horizontal */
+}
+
+/* Cartes des services */
+.horizontal-scroll .card-avis {
+  flex: 0 0 30%; /* Largeur de chaque carte */
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center; /* Alignement au centre */
+  transition: transform 0.3s ease;
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
+
+.contact-container {
+  display: flex; /* Active Flexbox */
+  justify-content: center; /* Centre horizontalement */
+  align-items: left; /* Centre verticalement */
+}
+
+.card-contact {
+  width: 60%;
+  background: #1e2075;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  display: flex; /* Active Flexbox */
+  align-items: left; /* Centre verticalement */
+  height: 15vh; /* Hauteur égale à la taille de la fenêtre */
+}
+
+.card-contact h3 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.card-contact .btn {
+  margin-top: 5px;
+  padding: 0.5rem;
+  background: #f1587d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.card-contact .btn:hover {
+  background: #c0113d;
+  transform: scale(1.05);
+}
+
+/* Section Contact */
+#contact {
+  background-color: #fde4f4; /* Couleur de fond douce */
+  padding: 20px 20px;
+  margin-top: -80px;
+}
+
+/* Conteneur principal */
+.contactus-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centrer la section */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* S'adapte aux petits écrans */
+  gap: 10px;
+}
+
+/* Section réseaux */
+.reseaux img {
+  display: block;
+  max-width: 200px; /* Taille des images */
+  margin-bottom: 10px;
+}
+
+.reseaux img:last-child {
+  max-width: 200px; /* Image des réseaux */
+}
+
+/* Colonnes (compagnie, ressources) */
+.compagnie, .ressources, .contacts {
+  flex: 1;
+  min-width: 200px; /* Largeur minimale pour les petits écrans */
+}
+
+.compagnie h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1e2075;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.contacts h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1e2075;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.ressources h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1e2075;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.compagnie a, .ressources a, .contacts a {
+  display: block;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  margin-left: 150px;
+}
+
+.compagnie a:hover, .ressources a:hover, .contacts a:hover {
+  color: #ffd700; /* Changement de couleur au survol */
+}
+
+form label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+/* Style par défaut pour le menu */
+.menu-toggle {
+  display: none; /* Caché sur les grands écrans */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Par défaut, le lien spécial est masqué */
+.nav-link-mobile {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #1e2075;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+/* MÉDIA QUERY POUR LES PETITS ÉCRANS (TÉLÉPHONES) */
+@media (max-width: 768px) {
+  /* Général : Ajustement des marges */
+  body {
+    font-size: 16px; /* Assurez une taille de texte lisible */
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    /* Style du menu */
+    .nav-links {
+      display: flex;
+      flex-direction: column; /* Empile les éléments */
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Cache les éléments en dehors du conteneur */
+      max-height: 0; /* Menu fermé par défaut */
+      transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
+      z-index: 100;
+    }
+
+    .nav-links.active {
+      max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
+    }
+
+    .nav-links li {
+      opacity: 0; /* Éléments invisibles par défaut */
+      transform: translateY(-10px); /* Décalage vers le haut */
+      animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
+    }
+
+    .nav-links li:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .nav-links li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .nav-links li:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .nav-links li:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    /* Animation pour faire glisser les éléments */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Bouton toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        color: #1e2075;
+        width: 50px;
+        
+        
+      }
+      .nav-links {
+        width: 100%; /* Menu plein écran sur mobile */
+        height: 100%;
+        text-align: left;
+      }
+    }
+
+    /* Afficher uniquement sur les petits écrans */
+    @media (max-width: 768px) {
+      .nav-link-mobile {
+        display: block;
+      }
+    }
+
+  /* Header */
+  header h1 {
+    font-size: 1.8rem; /* Réduire le titre */
+    text-align: center;
+  }
+
+  header nav ul {
+    flex-direction: column; /* Empile les liens verticalement */
+    align-items: center;
+    gap: 10px;
+  }
+
+  header .btn {
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero h2 {
+    font-size: 1.2rem; /* Réduire le titre */
+    line-height: 1;
+    text-align: left;
+  }
+
+  .hero p {
+    font-size: 0.7rem; /* Texte plus petit */
+    color: #000;
+    text-align: left;
+  }
+
+  .hero .btn {
+    font-size: 0.7rem;
+    padding: 5px 10px; /* Réduire la taille du bouton */
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 5px 10px; /* Réduire la taille du bouton */
+  }
+
+  /* Section Services */
+  #services h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr; /* Une seule carte par ligne */
+  }
+
+  .card h3 {
+    font-size: 1.2rem; /* Réduire le titre des cartes */
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+    /* Conteneur pour le défilement horizontal */
+    .horizontal-scroll {
+      display: flex;
+      overflow-x: auto; /* Permet le défilement horizontal */
+      gap: 20px; /* Espace entre les cartes */
+      scroll-snap-type: x mandatory; /* Défilement fluide */
+      padding-bottom: 10px;
+    }
+
+    /* Cartes des services */
+    .horizontal-scroll .card {
+      flex: 0 0 80%; /* Largeur de chaque carte */
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: center; /* Alignement au centre */
+      transition: transform 0.3s ease;
+    }
+
+    /* Effet de survol */
+    .horizontal-scroll .card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Conteneur des cartes */
+    .avis-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
+      gap: 20px; /* Espace entre les cartes */
+      margin-top: 20px;
+    }
+
+    /* Cartes de base (avant animation) */
+    .card-avis {
+      width: 30%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+      opacity: 0; /* Caché initialement */
+      transform: translateY(-50px); /* Déplacé vers le haut */
+      animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
+      margin-left: 0px;
+
+    }
+
+    /* Ajout d'un délai pour chaque carte */
+    .card-avis:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .card-avis:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .card-avis:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    /* Animation "dépôt" */
+    @keyframes dropEffect {
+      from {
+        opacity: 0;
+        transform: translateY(-50px); /* Départ plus haut */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0); /* Arrêt à la position normale */
+      }
+    }
+
+    .avis {
+      text-align: center;
+      padding: 1rem 0;
+      color: #1e2075;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      margin-left: 10px;
+    }
+
+    .client img {
+      width: 10%;
+      border-radius: 100%;
+      margin-left: -250px;
+      margin-top: 5px;
+    }
+
+    .nom-business h3 {
+      text-align: left;
+      font-size: 1rem;
+      color: #f1587d;
+      margin-bottom: 5px;
+      margin-left: -250px;
+    }
+
+    .nom-business p {
+      text-align: left;
+      font-size: 0.7rem;
+      color: #1e2075;
+      margin-left: -250px;
+    }
+
+    /* Conteneur pour les étoiles */
+    .rating {
+      display: flex;
+      gap: 5px; /* Espacement entre les étoiles */
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    /* Étoiles */
+    .star {
+      font-size: 20px;
+      color: #ffd700; /* Couleur or pour les étoiles remplies */
+      cursor: pointer; /* Curseur interactif */
+      transition: transform 0.2s ease;
+    }
+
+    /* Cartes des avis */
+    .horizontal-scroll .card-avis {
+      flex: 0 0 80%; /* Largeur de chaque carte */
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: center; /* Alignement au centre */
+      transition: transform 0.3s ease;
+    }
+
+    /* Effet de survol */
+    .horizontal-scroll .card-avis:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-container {
+      display: flex; /* Active Flexbox */
+      justify-content: center; /* Centre horizontalement */
+      align-items: left; /* Centre verticalement */
+    }
+
+    .card-contact {
+      width: 90%;
+      background: #1e2075;;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+      display: flex; /* Active Flexbox */
+      align-items: center; /* Centre verticalement */
+      height: 12vh; /* Hauteur égale à la taille de la fenêtre */
+    }
+
+    .card-contact h3 {
+      margin-left: -20px;
+      font-size: 0.7rem;
+      color: #fff;
+      text-align: left;
+    }
+
+    .card-contact .btn {
+      margin-top: 5px;
+      padding: 0.5rem;
+      background: #f1587d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: row; /* Aligne tous les éléments sur une même ligne */
+      overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+      gap: 10px;
+      text-align: center;
+      margin-left: 10px;
+    }
+
+    .reseaux {
+      flex-shrink: 0; /* Empêche les images de se réduire trop */
+    }
+
+    .compagnie, .ressources {
+      flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
+    }
+  }
+    
+  form input,
+  form textarea,
+  form button {
+    font-size: 1rem; /* Ajustement des champs */
+  }
+
+  form button {
+    padding: 10px; /* Taille du bouton contact */
+  }
+
+  /* Footer */
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+
