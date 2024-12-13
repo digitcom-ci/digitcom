@@ -344,7 +344,7 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
   display: flex; /* Active Flexbox */
   align-items: left; /* Centre verticalement */
-  height: 15vh; /* Hauteur égale à la taille de la fenêtre */
+  height: 10vh; /* Hauteur égale à la taille de la fenêtre */
 }
 
 .card-contact h3 {
@@ -360,7 +360,7 @@ h2 {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .card-contact .btn:hover {
@@ -494,89 +494,74 @@ footer {
     padding: 0;
   }
 
-  @media (max-width: 768px) {
-    /* Style du menu */
-    .nav-links {
-      display: flex;
-      flex-direction: column; /* Empile les éléments */
-      align-items: center;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* Cache les éléments en dehors du conteneur */
-      max-height: 0; /* Menu fermé par défaut */
-      transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
-      z-index: 100;
-    }
+  /* Style du menu */
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Empile les éléments */
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Cache les éléments en dehors du conteneur */
+    max-height: 0; /* Menu fermé par défaut */
+    transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
+    z-index: 100;
+  }
 
-    .nav-links.active {
-      max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
-    }
+  .nav-links.active {
+    max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
+  }
 
-    .nav-links li {
-      opacity: 0; /* Éléments invisibles par défaut */
-      transform: translateY(-10px); /* Décalage vers le haut */
-      animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
-    }
+  .nav-links li {
+    opacity: 0; /* Éléments invisibles par défaut */
+    transform: translateY(-10px); /* Décalage vers le haut */
+    animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
+  }
 
-    .nav-links li:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    .nav-links li:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    .nav-links li:nth-child(3) {
-      animation-delay: 0.3s;
-    }
-    .nav-links li:nth-child(4) {
-      animation-delay: 0.4s;
-    }
+  .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+  .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+  .nav-links li:nth-child(4) { animation-delay: 0.4s; }
 
-    /* Animation pour faire glisser les éléments */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  /* Animation pour faire glisser les éléments */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-    /* Bouton toggle */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
+  /* Bouton toggle */
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        color: #1e2075;
-        width: 50px;
-        
-        
-      }
-      .nav-links {
-        width: 100%; /* Menu plein écran sur mobile */
-        height: 100%;
-        text-align: left;
-      }
-    }
+  .menu-toggle {
+    display: block;
+    color: #1e2075;
+    width: 50px;
+  }
+      
+  .nav-links {
+    width: 100%; /* Menu plein écran sur mobile */
+    height: 100%;
+    text-align: left;
+  }
 
-    /* Afficher uniquement sur les petits écrans */
-    @media (max-width: 768px) {
-      .nav-link-mobile {
-        display: block;
-      }
-    }
+  .nav-link-mobile {
+    display: block;
+  }
 
   /* Header */
   header h1 {
@@ -595,6 +580,14 @@ footer {
   }
 
   /* Hero Section */
+  .hero {
+    flex-direction: row; /* Aligne tous les éléments sur une même ligne */
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+    gap: 10px;
+    text-align: center;
+    margin-left: 10px;
+  }
+  
   .hero h2 {
     font-size: 1.2rem; /* Réduire le titre */
     line-height: 1;
@@ -678,7 +671,6 @@ footer {
       transform: translateY(-50px); /* Déplacé vers le haut */
       animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
       margin-left: 0px;
-
     }
 
     /* Ajout d'un délai pour chaque carte */
@@ -747,7 +739,7 @@ footer {
       transition: transform 0.2s ease;
     }
 
-    /* Cartes des services */
+    /* Cartes des avis */
     .horizontal-scroll .card-avis {
       flex: 0 0 80%; /* Largeur de chaque carte */
       background: #fff;
@@ -781,8 +773,8 @@ footer {
     }
 
     .card-contact h3 {
-      margin-left: -20px;
-      font-size: 0.7rem;
+      margin-left: 5px;
+      font-size: 0.6rem;
       color: #fff;
       text-align: left;
     }
@@ -795,16 +787,7 @@ footer {
       text-decoration: none;
       border-radius: 5px;
       margin-left: 5px;
-    }
-
-  @media (max-width: 768px) {
-    .hero {
-      flex-direction: row; /* Aligne tous les éléments sur une même ligne */
-      overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
-      gap: 10px;
-      text-align: center;
-      margin-left: 10px;
-    }
+    }    
 
     .reseaux {
       flex-shrink: 0; /* Empêche les images de se réduire trop */
@@ -813,7 +796,6 @@ footer {
     .compagnie, .ressources {
       flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
     }
-  }
     
   form input,
   form textarea,
