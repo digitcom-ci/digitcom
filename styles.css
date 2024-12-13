@@ -753,22 +753,6 @@ footer {
       transition: transform 0.2s ease;
     }
 
-    /* Cartes des services */
-    .horizontal-scroll .card-avis {
-      flex: 0 0 80%; /* Largeur de chaque carte */
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      scroll-snap-align: center; /* Alignement au centre */
-      transition: transform 0.3s ease;
-    }
-
-    /* Effet de survol */
-    .horizontal-scroll .card-avis:hover {
-      transform: scale(1.05);
-    }
-
     .contact-container {
       display: flex; /* Active Flexbox */
       justify-content: center; /* Centre horizontalement */
