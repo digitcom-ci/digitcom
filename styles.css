@@ -254,7 +254,7 @@ h2 {
   opacity: 0; /* Caché initialement */
   transform: translateY(-50px); /* Déplacé vers le haut */
   animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
-  margin-left: 0px;
+  gap: 20px;
   
 }
 
