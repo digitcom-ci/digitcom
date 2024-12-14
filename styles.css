@@ -344,7 +344,7 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
   display: flex; /* Active Flexbox */
   align-items: left; /* Centre verticalement */
-  height: 10vh; /* Hauteur égale à la taille de la fenêtre */
+  height: 15vh; /* Hauteur égale à la taille de la fenêtre */
 }
 
 .card-contact h3 {
