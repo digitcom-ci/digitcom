@@ -18,13 +18,13 @@ navLinks.forEach(link => {
   });
 });
 
-// Sélectionne le bouton menu hamburger et le conteneur de navigation
-const menuToggle = document.querySelector('.menu-toggle');
-const navContainer = document.querySelector('.nav-links'); // Changement ici pour éviter le conflit
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-// Ajoute un gestionnaire d'événements pour basculer l'état
-menuToggle.addEventListener('click', () => {
-  navContainer.classList.toggle('active');
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 });
 
 // Sélectionner toutes les cartes
