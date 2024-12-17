@@ -262,7 +262,17 @@ h2 {
   width: 60%;
   height: auto;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+/* Détecte lorsque l'image est dans la fenêtre */
+.container img.in-viewport {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* Conteneur des cartes */
 .avis-container {
