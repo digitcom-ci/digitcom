@@ -618,22 +618,6 @@ footer {
       cursor: pointer;
       color: #1e2075;
     }
-       
-       
-      }
-      .nav-links {
-        width: 100%; /* Menu plein écran sur mobile */
-        height: 100%;
-        text-align: left;
-      }
-    }
-
-    /* Afficher uniquement sur les petits écrans */
-    @media (max-width: 768px) {
-      .nav-link-mobile {
-        display: block;
-      }
-    }
 
   /* Header */
   header h1 {
