@@ -213,7 +213,7 @@ h2 {
   transition: transform 0.3s ease;
   margin-right: 20px;
   margin-left: 20px;
-  
+ 
 }
 
 #prise-en-charge {
@@ -251,17 +251,24 @@ h2 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
   opacity: 0; /* Caché initialement */
   transform: translateY(-50px); /* Déplacé vers le haut */
   animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
-  gap: 120px;
-  
+  margin-left: 0px;
+ 
 }
 
 /* Ajout d'un délai pour chaque carte */
-.card-avis:nth-child(1) { animation-delay: 0.3s; }
-.card-avis:nth-child(2) { animation-delay: 0.6s; }
-.card-avis:nth-child(3) { animation-delay: 0.9s; }
+.card-avis:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card-avis:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card-avis:nth-child(3) {
+  animation-delay: 0.6s;
+}
 
 /* Animation "dépôt" */
 @keyframes dropEffect {
@@ -325,20 +332,23 @@ h2 {
 }
 
 .horizontal-scroll {
-  display: none;
+  display: flex;
   overflow-x: none; /* Permet le défilement horizontal */
 }
 
-/* Cartes des avis */
-    .horizontal-scroll .card-avis {
-      display: flex;
-      overflow-x: none; /* Permet le défilement horizontal */
-    }
+/* Cartes des services */
+.horizontal-scroll .card-avis {
+  flex: 0 0 30%; /* Largeur de chaque carte */
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center; /* Alignement au centre */
+  transition: transform 0.3s ease;
+  margin-right: 20px;
+  margin-left: 20px;
 
-    /* Effet de survol */
-    .horizontal-scroll .card-avis:hover {
-      transform: scale(1.05);
-    }
+}
 
 .contact-container {
   display: flex; /* Active Flexbox */
@@ -370,7 +380,7 @@ h2 {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .card-contact .btn:hover {
@@ -492,7 +502,7 @@ footer {
   background: #1e2075;
   color: #fff;
   font-weight: bold;
-  
+ 
 }
 
 /* MÉDIA QUERY POUR LES PETITS ÉCRANS (TÉLÉPHONES) */
@@ -504,74 +514,89 @@ footer {
     padding: 0;
   }
 
-  /* Style du menu */
-  .nav-links {
-    display: flex;
-    flex-direction: column; /* Empile les éléments */
-    align-items: center;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Cache les éléments en dehors du conteneur */
-    max-height: 0; /* Menu fermé par défaut */
-    transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
-    z-index: 100;
-  }
-
-  .nav-links.active {
-    max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
-  }
-
-  .nav-links li {
-    opacity: 0; /* Éléments invisibles par défaut */
-    transform: translateY(-10px); /* Décalage vers le haut */
-    animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
-  }
-
-  .nav-links li:nth-child(1) { animation-delay: 0.1s; }
-  .nav-links li:nth-child(2) { animation-delay: 0.2s; }
-  .nav-links li:nth-child(3) { animation-delay: 0.3s; }
-  .nav-links li:nth-child(4) { animation-delay: 0.4s; }
-
-  /* Animation pour faire glisser les éléments */
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
+  @media (max-width: 768px) {
+    /* Style du menu */
+    .nav-links {
+      display: flex;
+      flex-direction: column; /* Empile les éléments */
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Cache les éléments en dehors du conteneur */
+      max-height: 0; /* Menu fermé par défaut */
+      transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
+      z-index: 100;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .nav-links.active {
+      max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
     }
-  }
 
-  /* Bouton toggle */
-  .menu-toggle {
-    display: flex;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
+    .nav-links li {
+      opacity: 0; /* Éléments invisibles par défaut */
+      transform: translateY(-10px); /* Décalage vers le haut */
+      animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
+    }
 
-  .menu-toggle {
-    display: block;
-    color: #1e2075;
-    width: 50px;
-  }
-      
-  .nav-links {
-    width: 100%; /* Menu plein écran sur mobile */
-    height: 100%;
-    text-align: left;
-  }
+    .nav-links li:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .nav-links li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .nav-links li:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .nav-links li:nth-child(4) {
+      animation-delay: 0.4s;
+    }
 
-  .nav-link-mobile {
-    display: block;
-  }
+    /* Animation pour faire glisser les éléments */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Bouton toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        color: #1e2075;
+        width: 50px;
+       
+       
+      }
+      .nav-links {
+        width: 100%; /* Menu plein écran sur mobile */
+        height: 100%;
+        text-align: left;
+      }
+    }
+
+    /* Afficher uniquement sur les petits écrans */
+    @media (max-width: 768px) {
+      .nav-link-mobile {
+        display: block;
+      }
+    }
 
   /* Header */
   header h1 {
@@ -590,14 +615,6 @@ footer {
   }
 
   /* Hero Section */
-  .hero {
-    flex-direction: row; /* Aligne tous les éléments sur une même ligne */
-    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
-    gap: 10px;
-    text-align: center;
-    margin-left: 10px;
-  }
-  
   .hero h2 {
     font-size: 1.2rem; /* Réduire le titre */
     line-height: 1;
@@ -637,7 +654,7 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* Conteneur pour le défilement horizontal */
+    /* Conteneur pour le défilement horizontal */
     .horizontal-scroll {
       display: flex;
       overflow-x: auto; /* Permet le défilement horizontal */
@@ -677,16 +694,24 @@ footer {
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
       opacity: 0; /* Caché initialement */
       transform: translateY(-50px); /* Déplacé vers le haut */
       animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
       margin-left: 0px;
+
     }
 
     /* Ajout d'un délai pour chaque carte */
-    .card-avis:nth-child(1) { animation-delay: 0.3s; }
-    .card-avis:nth-child(2) { animation-delay: 0.6s; }
-    .card-avis:nth-child(3) { animation-delay: 0.9s; }
+    .card-avis:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .card-avis:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .card-avis:nth-child(3) {
+      animation-delay: 0.6s;
+    }
 
     /* Animation "dépôt" */
     @keyframes dropEffect {
@@ -772,19 +797,19 @@ footer {
     }
 
     .card-contact {
-      width: 100%;
+      width: 90%;
       background: #1e2075;;
       padding: 10px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
       display: flex; /* Active Flexbox */
       align-items: center; /* Centre verticalement */
-      height: 10vh; /* Hauteur égale à la taille de la fenêtre */
+      height: 12vh; /* Hauteur égale à la taille de la fenêtre */
     }
 
     .card-contact h3 {
-      margin-left: 5px;
-      font-size: 0.6rem;
+      margin-left: -20px;
+      font-size: 0.7rem;
       color: #fff;
       text-align: left;
     }
@@ -797,7 +822,16 @@ footer {
       text-decoration: none;
       border-radius: 5px;
       margin-left: 5px;
-    }    
+    }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: row; /* Aligne tous les éléments sur une même ligne */
+      overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+      gap: 10px;
+      text-align: center;
+      margin-left: 10px;
+    }
 
     .reseaux {
       flex-shrink: 0; /* Empêche les images de se réduire trop */
@@ -806,7 +840,8 @@ footer {
     .compagnie, .ressources {
       flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
     }
-    
+  }
+   
   form input,
   form textarea,
   form button {
