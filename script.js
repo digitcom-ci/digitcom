@@ -72,27 +72,26 @@ stars.forEach((star) => {
   });
 });
 
-// Sélectionne toutes les images avec la classe img-animate
-const images = document.querySelectorAll('.img-animate');
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll('.img-animate');
 
-// Configuration de l'observer
-const observerOptions = {
-  root: null, // Prend tout le viewport
-  threshold: 0.9, // 90% de visibilité
-};
+  const observerOptions = {
+    root: null, // Par rapport au viewport
+    threshold: 0.9, // 90% de l'image doit être visible
+  };
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Ajoute la classe visible pour activer l'animation
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Stoppe l'observation après l'animation
-    }
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); // Ajoute la classe pour activer l'animation
+        observer.unobserve(entry.target); // Stoppe l'observation après animation
+      }
+    });
+  }, observerOptions);
+
+  images.forEach(image => {
+    observer.observe(image); // Observe chaque image
   });
-}, observerOptions);
-
-// Observe chaque image
-images.forEach(image => {
-  observer.observe(image);
 });
+
 
