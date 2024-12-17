@@ -189,6 +189,20 @@ h2 {
 
 .card img {
   width: 70%;
+  opacity: 0;
+  transform: translateY(-50px) scale(0.9);
+  animation: imageDropEffect 3s ease forwards;
+}
+
+@keyframes imageDropEffect {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Titre de la carte */
