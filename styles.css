@@ -10,29 +10,6 @@ body {
   background-color: #fff;
 }
 
-/* ====== IMAGE ANIMATION ====== */
-.image-animate {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.image-animate.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes dropEffect {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .menu {
   width: 90%;
   max-width: 1200px;
