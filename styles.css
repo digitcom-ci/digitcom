@@ -715,10 +715,14 @@ footer {
       scroll-snap-align: center; /* Alignement au centre */
       transition: transform 0.3s ease;
     }
-
+  
     /* Effet de survol */
     .horizontal-scroll .card:hover {
       transform: scale(1.05);
+    }
+  
+    .cover img {
+      width: 80%;
     }
 
     /* Conteneur des cartes */
