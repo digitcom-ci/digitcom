@@ -12,15 +12,14 @@ body {
 
 /* ====== EFFET ANIMATION IMAGE ====== */
 .img-animate {
-  opacity: 0;
-  transform: translateY(-50px) scale(0.8); /* Position de départ avec zoom réduit */
-  animation: imageDropZoom 1s ease forwards;
+  opacity: 0; 
+  transform: scale(0.8); /* Taille réduite au départ */
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Classe ajoutée via JavaScript lorsqu'elle est visible */
-.img-animate.active {
+.img-animate.visible {
   opacity: 1;
-  transform: translateY(0) scale(1.1);
+  transform: scale(1); /* Zoom à 100% */
 }
 
 .menu {
