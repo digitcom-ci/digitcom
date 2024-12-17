@@ -556,68 +556,68 @@ footer {
     padding: 0;
   }
 
-  @media (max-width: 768px) {
-    /* Style du menu */
-    .nav-links {
-      display: flex;
-      flex-direction: column; /* Empile les éléments */
-      align-items: center;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* Cache les éléments en dehors du conteneur */
-      max-height: 0; /* Menu fermé par défaut */
-      transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
-      z-index: 100;
-    }
+  /* Style du menu */
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Empile les éléments */
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Cache les éléments en dehors du conteneur */
+    max-height: 0; /* Menu fermé par défaut */
+    transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
+    z-index: 100;
+  }
 
-    .nav-links.active {
-      max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
-    }
+  .nav-links.active {
+    max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
+  }
 
-    .nav-links li {
-      opacity: 0; /* Éléments invisibles par défaut */
-      transform: translateY(-10px); /* Décalage vers le haut */
-      animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
-    }
+  .nav-links li {
+    opacity: 0; /* Éléments invisibles par défaut */
+    transform: translateY(-10px); /* Décalage vers le haut */
+    animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
+  }
 
-    .nav-links li:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    .nav-links li:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    .nav-links li:nth-child(3) {
-      animation-delay: 0.3s;
-    }
-    .nav-links li:nth-child(4) {
-      animation-delay: 0.4s;
-    }
+  .nav-links li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .nav-links li:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .nav-links li:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .nav-links li:nth-child(4) {
+    animation-delay: 0.4s;
+  }
 
-    /* Animation pour faire glisser les éléments */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  /* Animation pour faire glisser les éléments */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-    /* Bouton toggle */
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #1e2075;
-    }
+  /* Bouton toggle */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #1e2075;
+  }
 
   /* Header */
   header h1 {
@@ -675,196 +675,193 @@ footer {
     font-size: 0.9rem;
   }
 
-    /* Conteneur pour le défilement horizontal */
-    .horizontal-scroll {
-      display: flex;
-      overflow-x: auto; /* Permet le défilement horizontal */
-      gap: 20px; /* Espace entre les cartes */
-      scroll-snap-type: x mandatory; /* Défilement fluide */
-      padding-bottom: 10px;
-    }
+  /* Conteneur pour le défilement horizontal */
+  .horizontal-scroll {
+    display: flex;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    gap: 20px; /* Espace entre les cartes */
+    scroll-snap-type: x mandatory; /* Défilement fluide */
+    padding-bottom: 10px;
+  }
 
-    /* Cartes des services */
-    .horizontal-scroll .card {
-      flex: 0 0 80%; /* Largeur de chaque carte */
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      scroll-snap-align: center; /* Alignement au centre */
-      transition: transform 0.3s ease;
-    }
+  /* Cartes des services */
+  .horizontal-scroll .card {
+    flex: 0 0 80%; /* Largeur de chaque carte */
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center; /* Alignement au centre */
+    transition: transform 0.3s ease;
+  }
   
-    /* Effet de survol */
-    .horizontal-scroll .card:hover {
-      transform: scale(1.05);
-    }
+  /* Effet de survol */
+  .horizontal-scroll .card:hover {
+    transform: scale(1.05);
+  }
   
-    .cover img {
-      width: 80%;
-    }
+  .cover img {
+    width: 80%;
+  }
 
-    /* Conteneur des cartes */
-    .avis-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
-      gap: 20px; /* Espace entre les cartes */
-      margin-top: 20px;
-    }
+  /* Conteneur des cartes */
+  .avis-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
+    gap: 20px; /* Espace entre les cartes */
+    margin-top: 20px;
+  }
 
-    /* Cartes de base (avant animation) */
-    .card-avis {
-      width: 30%;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
-      opacity: 0; /* Caché initialement */
-      transform: translateY(-50px); /* Déplacé vers le haut */
-      animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
-      margin-left: 0px;
+  /* Cartes de base (avant animation) */
+  .card-avis {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+    opacity: 0; /* Caché initialement */
+    transform: translateY(-50px); /* Déplacé vers le haut */
+    animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
+    margin-left: 0px;
+  }
 
-    }
+  /* Ajout d'un délai pour chaque carte */
+  .card-avis:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .card-avis:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .card-avis:nth-child(3) {
+    animation-delay: 0.6s;
+  }
 
-    /* Ajout d'un délai pour chaque carte */
-    .card-avis:nth-child(1) {
-      animation-delay: 0.2s;
+  /* Animation "dépôt" */
+  @keyframes dropEffect {
+    from {
+      opacity: 0;
+      transform: translateY(-50px); /* Départ plus haut */
     }
-    .card-avis:nth-child(2) {
-      animation-delay: 0.4s;
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Arrêt à la position normale */
     }
-    .card-avis:nth-child(3) {
-      animation-delay: 0.6s;
-    }
+  }
 
-    /* Animation "dépôt" */
-    @keyframes dropEffect {
-      from {
-        opacity: 0;
-        transform: translateY(-50px); /* Départ plus haut */
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0); /* Arrêt à la position normale */
-      }
-    }
+  .avis {
+    text-align: center;
+    padding: 1rem 0;
+    color: #1e2075;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-left: 10px;
+  }
 
-    .avis {
-      text-align: center;
-      padding: 1rem 0;
-      color: #1e2075;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 5px;
-      margin-left: 10px;
-    }
+  .client img {
+    width: 10%;
+    border-radius: 100%;
+    margin-left: -250px;
+    margin-top: 5px;
+  }
 
-    .client img {
-      width: 10%;
-      border-radius: 100%;
-      margin-left: -250px;
-      margin-top: 5px;
-    }
+  .nom-business h3 {
+    text-align: left;
+    font-size: 1rem;
+    color: #f1587d;
+    margin-bottom: 5px;
+    margin-left: -250px;
+  }
 
-    .nom-business h3 {
-      text-align: left;
-      font-size: 1rem;
-      color: #f1587d;
-      margin-bottom: 5px;
-      margin-left: -250px;
-    }
+  .nom-business p {
+    text-align: left;
+    font-size: 0.7rem;
+    color: #1e2075;
+    margin-left: -250px;
+  }
 
-    .nom-business p {
-      text-align: left;
-      font-size: 0.7rem;
-      color: #1e2075;
-      margin-left: -250px;
-    }
+  /* Conteneur pour les étoiles */
+  .rating {
+    display: flex;
+    gap: 5px; /* Espacement entre les étoiles */
+    justify-content: center;
+    margin-top: 10px;
+  }
 
-    /* Conteneur pour les étoiles */
-    .rating {
-      display: flex;
-      gap: 5px; /* Espacement entre les étoiles */
-      justify-content: center;
-      margin-top: 10px;
-    }
+  /* Étoiles */
+  .star {
+    font-size: 20px;
+    color: #ffd700; /* Couleur or pour les étoiles remplies */
+    cursor: pointer; /* Curseur interactif */
+    transition: transform 0.2s ease;
+  }
 
-    /* Étoiles */
-    .star {
-      font-size: 20px;
-      color: #ffd700; /* Couleur or pour les étoiles remplies */
-      cursor: pointer; /* Curseur interactif */
-      transition: transform 0.2s ease;
-    }
+  /* Cartes des avis */
+  .horizontal-scroll .card-avis {
+    flex: 0 0 80%; /* Largeur de chaque carte */
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center; /* Alignement au centre */
+    transition: transform 0.3s ease;
+  }
 
-    /* Cartes des avis */
-    .horizontal-scroll .card-avis {
-      flex: 0 0 80%; /* Largeur de chaque carte */
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      scroll-snap-align: center; /* Alignement au centre */
-      transition: transform 0.3s ease;
-    }
+  /* Effet de survol */
+  .horizontal-scroll .card-avis:hover {
+    transform: scale(1.05);
+  }
 
-    /* Effet de survol */
-    .horizontal-scroll .card-avis:hover {
-      transform: scale(1.05);
-    }
+  .contact-container {
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: left; /* Centre verticalement */
+  }
 
-    .contact-container {
-      display: flex; /* Active Flexbox */
-      justify-content: center; /* Centre horizontalement */
-      align-items: left; /* Centre verticalement */
-    }
+  .card-contact {
+    width: 90%;
+    background: #1e2075;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    display: flex; /* Active Flexbox */
+    align-items: center; /* Centre verticalement */
+    height: 12vh; /* Hauteur égale à la taille de la fenêtre */
+  }
 
-    .card-contact {
-      width: 90%;
-      background: #1e2075;;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-      display: flex; /* Active Flexbox */
-      align-items: center; /* Centre verticalement */
-      height: 12vh; /* Hauteur égale à la taille de la fenêtre */
-    }
+  .card-contact h3 {
+    margin-left: -20px;
+    font-size: 0.7rem;
+    color: #fff;
+    text-align: left;
+  }
 
-    .card-contact h3 {
-      margin-left: -20px;
-      font-size: 0.7rem;
-      color: #fff;
-      text-align: left;
-    }
+  .card-contact .btn {
+    margin-top: 5px;
+    padding: 0.5rem;
+    background: #f1587d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
 
-    .card-contact .btn {
-      margin-top: 5px;
-      padding: 0.5rem;
-      background: #f1587d;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-left: 5px;
-    }
+  .hero {
+    flex-direction: row; /* Aligne tous les éléments sur une même ligne */
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+    gap: 10px;
+    text-align: center;
+    margin-left: 10px;
+  }
 
-  @media (max-width: 768px) {
-    .hero {
-      flex-direction: row; /* Aligne tous les éléments sur une même ligne */
-      overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
-      gap: 10px;
-      text-align: center;
-      margin-left: 10px;
-    }
+  .reseaux {
+    flex-shrink: 0; /* Empêche les images de se réduire trop */
+  }
 
-    .reseaux {
-      flex-shrink: 0; /* Empêche les images de se réduire trop */
-    }
-
-    .compagnie, .ressources {
-      flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
-    }
+  .compagnie, .ressources {
+    flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
   }
    
   form input,
