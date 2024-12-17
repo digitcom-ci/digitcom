@@ -72,23 +72,24 @@ stars.forEach((star) => {
   });
 });
 
-// Sélectionnez toutes les images animées
-const images = document.querySelectorAll('.img-animate');
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.img-animate');
 
-// Créez un observer pour surveiller les éléments
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible'); // Active l'animation
-      observer.unobserve(entry.target); // Arrête d'observer après animation
-    }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.9) { // 90% visible
+        entry.target.classList.add('active'); // Ajout de la classe
+      }
+    });
+  }, { threshold: 0.9 }); // 90% de visibilité
+
+  images.forEach(image => {
+    observer.observe(image);
   });
 });
+</script>
 
-// Appliquez l'observer à chaque image
-images.forEach(image => {
-  observer.observe(image);
-});
 
 
 
