@@ -5,35 +5,6 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   this.reset(); 
 });
 
-// Fonction pour détecter si un élément est dans le viewport
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-// Ajouter l'animation à toutes les images
-const images = document.querySelectorAll('.image-animate');
-
-function handleScroll() {
-  images.forEach((img) => {
-    if (isElementInViewport(img)) {
-      img.classList.add('active');
-    }
-  });
-}
-
-// Détecter le défilement
-window.addEventListener('scroll', handleScroll);
-
-// Lancer une détection initiale au chargement
-document.addEventListener('DOMContentLoaded', handleScroll);
-
-
 // Sélectionnez tous les liens de navigation
 const navLinks = document.querySelectorAll('nav ul li a');
 
