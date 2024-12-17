@@ -5,6 +5,34 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   this.reset(); 
 });
 
+// Fonction pour vérifier si un élément est visible dans le viewport
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Fonction pour gérer l'effet d'animation
+function handleScroll() {
+  const images = document.querySelectorAll('.image-zoom'); // Sélectionner les images
+  images.forEach((image) => {
+    if (isElementInViewport(image)) {
+      image.classList.add('active'); // Ajouter la classe "active"
+    }
+  });
+}
+
+// Écouter le défilement pour activer l'animation
+window.addEventListener('scroll', handleScroll);
+
+// Activer l'effet au chargement initial de la page
+document.addEventListener('DOMContentLoaded', handleScroll);
+
+
 // Sélectionnez tous les liens de navigation
 const navLinks = document.querySelectorAll('nav ul li a');
 
