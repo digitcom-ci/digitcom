@@ -329,6 +329,16 @@ h2 {
   overflow-x: none; /* Permet le défilement horizontal */
 }
 
+/* Cartes des avis */
+    .horizontal-scroll .card-avis {
+      display: flex;
+      overflow-x: none; /* Permet le défilement horizontal */
+    }
+
+    /* Effet de survol */
+    .horizontal-scroll .card-avis:hover {
+      transform: scale(1.05);
+    }
 
 .contact-container {
   display: flex; /* Active Flexbox */
