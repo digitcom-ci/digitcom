@@ -127,7 +127,7 @@ header nav ul li a.active {
   width: 100%;
   opacity: 0;
   transform: translateY(-50px) scale(0.9);
-  animation: imageDropEffect 1s ease forwards;
+  animation: imageDropEffect 3s ease forwards;
 }
 
 @keyframes imageDropEffect {
