@@ -521,7 +521,8 @@ form button {
 /* Style par défaut pour le menu */
 .menu-toggle {
   display: none; /* Caché sur les grands écrans */
-  background: none;
+  background-color: #fff;
+  color: #1e2075;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
@@ -536,6 +537,10 @@ form button {
   display: flex;
   gap: 20px;
   list-style: none;
+}
+
+.nav-links.active {
+  display: block;
 }
 
 footer {
@@ -556,9 +561,14 @@ footer {
     padding: 0;
   }
 
+  /* Bouton toggle */
+  .menu-toggle {
+    display: block;
+  }
+
   /* Style du menu */
   .nav-links {
-    display: flex;
+    display: none;
     flex-direction: column; /* Empile les éléments */
     align-items: center;
     position: absolute;
@@ -607,16 +617,6 @@ footer {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* Bouton toggle */
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #1e2075;
   }
 
   /* Header */
