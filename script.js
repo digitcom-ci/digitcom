@@ -5,6 +5,31 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   this.reset(); 
 });
 
+// Sélectionne toutes les images avec la classe img-animate
+const images = document.querySelectorAll('.img-animate');
+
+// Configuration de l'observer
+const observerOptions = {
+  root: null, // Prend tout le viewport
+  threshold: 0.9, // 90% de visibilité
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Ajoute la classe visible pour activer l'animation
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // Stoppe l'observation après l'animation
+    }
+  });
+}, observerOptions);
+
+// Observe chaque image
+images.forEach(image => {
+  observer.observe(image);
+});
+
+
 // Sélectionnez tous les liens de navigation
 const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -71,25 +96,6 @@ stars.forEach((star) => {
     console.log(`Note sélectionnée : ${rating}`);
   });
 });
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll('.img-animate');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio >= 0.9) { // 90% visible
-        entry.target.classList.add('active'); // Ajout de la classe
-      }
-    });
-  }, { threshold: 0.9 }); // 90% de visibilité
-
-  images.forEach(image => {
-    observer.observe(image);
-  });
-});
-</script>
-
 
 
 
