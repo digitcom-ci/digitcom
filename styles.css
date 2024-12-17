@@ -20,7 +20,7 @@ body {
 /* Classe ajoutée via JavaScript lorsqu'elle est visible */
 .img-animate.active {
   opacity: 1;
-  transform: translateY(0); /* Position finale */
+  transform: translateY(0) scale(1.1);
 }
 
 @keyframes imageDropZoom {
