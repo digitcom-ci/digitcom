@@ -10,17 +10,19 @@ body {
   background-color: #fff;
 }
 
-/* ====== EFFET ANIMATION IMAGE ====== */
+/* ====== Effet par défaut : Invisible et réduit ====== */
 .img-animate {
-  opacity: 0; 
-  transform: scale(0.8); /* Taille réduite au départ */
-  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: scale(0.8); /* Légèrement réduite */
+  transition: transform 1s ease, opacity 1s ease;
 }
 
+/* ====== Effet activé : Apparition avec zoom ====== */
 .img-animate.visible {
   opacity: 1;
-  transform: scale(1); /* Zoom à 100% */
+  transform: scale(1); /* Zoom normal */
 }
+
 
 .menu {
   width: 90%;
