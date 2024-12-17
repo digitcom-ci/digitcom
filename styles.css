@@ -268,7 +268,7 @@ h2 {
   margin-bottom: 20px;
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 3s ease-out, transform 3s ease-out;
+  transition: opacity 5s ease-out, transform 5s ease-out;
 }
 
 /* Détecte lorsque l'image est dans la fenêtre */
