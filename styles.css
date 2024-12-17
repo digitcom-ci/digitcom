@@ -529,29 +529,24 @@ form button {
   margin: 0.5rem 0;
 }
 
-/* Style par défaut pour le menu */
+/* Menu hamburger - visible seulement sur petits écrans */
 .menu-toggle {
-  display: none; /* Caché sur les grands écrans */
-  background-color: #fff;
-  color: #1e2075;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
+    display: none;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
 }
 
-/* Par défaut, le lien spécial est masqué */
-.nav-link-mobile {
-  display: none;
-}
-
+/* Affichage du menu de navigation (déroulé) lorsque la classe active est présente */
 .nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-links.active {
-  display: block;
+    display: block; /* Le menu s'affiche sous forme de bloc */
 }
 
 footer {
