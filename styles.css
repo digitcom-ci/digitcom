@@ -12,7 +12,7 @@ body {
 
 /* Position de départ : cachée */
 .img-animate {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(50px) scale(0.8); /* Image déplacée vers le bas */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
