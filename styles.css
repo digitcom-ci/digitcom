@@ -611,18 +611,13 @@ footer {
 
     /* Bouton toggle */
     .menu-toggle {
-      display: none;
+      display: block;
       background: none;
       border: none;
       font-size: 1.8rem;
       cursor: pointer;
+      color: #1e2075;
     }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        color: #1e2075;
-        width: 50px;
        
        
       }
