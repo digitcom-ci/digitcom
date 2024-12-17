@@ -258,6 +258,10 @@ h2 {
   align-items: center;
 }
 
+.cover img {
+  width: 60%
+}
+
 .container img {
   width: 60%;
   height: auto;
