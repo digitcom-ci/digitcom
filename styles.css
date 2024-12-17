@@ -10,17 +10,18 @@ body {
   background-color: #fff;
 }
 
-/* ====== CSS ANIMATION ====== */
-.img-animate {
-  opacity: 0; 
-  transform: scale(0.8); /* Taille réduite au départ */
-  transition: opacity 1s ease, transform 1s ease;
+/* ====== IMAGE ANIMATION ====== */
+.image-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.img-animate.visible {
+.image-animate.active {
   opacity: 1;
-  transform: scale(1); /* Zoom à 100% */
+  transform: translateY(0);
 }
+
 
 .menu {
   width: 90%;
