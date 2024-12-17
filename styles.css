@@ -17,6 +17,12 @@ body {
   animation: imageDropZoom 1s ease forwards;
 }
 
+/* Classe ajoutée via JavaScript lorsqu'elle est visible */
+.img-animate.active {
+  opacity: 1;
+  transform: translateY(0); /* Position finale */
+}
+
 @keyframes imageDropZoom {
   from {
     opacity: 0;
