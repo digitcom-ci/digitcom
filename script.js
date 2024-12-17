@@ -5,6 +5,22 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   this.reset(); 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.img-animate');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.9) { // 90% visible
+        entry.target.classList.add('active'); // Ajout de la classe
+      }
+    });
+  }, { threshold: 0.9 }); // 90% de visibilité
+
+  images.forEach(image => {
+    observer.observe(image);
+  });
+});
+
 // Sélectionnez tous les liens de navigation
 const navLinks = document.querySelectorAll('nav ul li a');
 
