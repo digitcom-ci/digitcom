@@ -72,26 +72,23 @@ stars.forEach((star) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const images = document.querySelectorAll('.img-animate');
+// Sélectionnez toutes les images animées
+const images = document.querySelectorAll('.img-animate');
 
-  const observerOptions = {
-    root: null, // Par rapport au viewport
-    threshold: 0.9, // 90% de l'image doit être visible
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible'); // Ajoute la classe pour activer l'animation
-        observer.unobserve(entry.target); // Stoppe l'observation après animation
-      }
-    });
-  }, observerOptions);
-
-  images.forEach(image => {
-    observer.observe(image); // Observe chaque image
+// Créez un observer pour surveiller les éléments
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // Active l'animation
+      observer.unobserve(entry.target); // Arrête d'observer après animation
+    }
   });
 });
+
+// Appliquez l'observer à chaque image
+images.forEach(image => {
+  observer.observe(image);
+});
+
 
 
