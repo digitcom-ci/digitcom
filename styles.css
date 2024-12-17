@@ -10,18 +10,19 @@ body {
   background-color: #fff;
 }
 
-/* Position de départ : cachée */
+/* Animation initiale */
 .img-animate {
-  opacity: 1;
-  transform: translateY(50px) scale(0.8); /* Image déplacée vers le bas */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(50px); /* Position de départ */
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Position d'arrivée : animation active */
-.img-animate.visible {
+/* Classe ajoutée via JavaScript lorsqu'elle est visible */
+.img-animate.active {
   opacity: 1;
-  transform: translateY(0) scale(1); /* Retour à la normale */
+  transform: translateY(0); /* Position finale */
 }
+
 
 .menu {
   width: 90%;
