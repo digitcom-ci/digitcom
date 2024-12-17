@@ -5,29 +5,33 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   this.reset(); 
 });
 
-// Sélectionne toutes les images avec la classe img-animate
-const images = document.querySelectorAll('.img-animate');
+// Fonction pour détecter si un élément est dans le viewport
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
 
-// Configuration de l'observer
-const observerOptions = {
-  root: null, // Prend tout le viewport
-  threshold: 0.9, // 90% de visibilité
-};
+// Ajouter l'animation à toutes les images
+const images = document.querySelectorAll('.image-animate');
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Ajoute la classe visible pour activer l'animation
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Stoppe l'observation après l'animation
+function handleScroll() {
+  images.forEach((img) => {
+    if (isElementInViewport(img)) {
+      img.classList.add('active');
     }
   });
-}, observerOptions);
+}
 
-// Observe chaque image
-images.forEach(image => {
-  observer.observe(image);
-});
+// Détecter le défilement
+window.addEventListener('scroll', handleScroll);
+
+// Lancer une détection initiale au chargement
+document.addEventListener('DOMContentLoaded', handleScroll);
 
 
 // Sélectionnez tous les liens de navigation
