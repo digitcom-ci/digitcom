@@ -18,16 +18,14 @@ navLinks.forEach(link => {
   });
 });
 
-function toggleMenu() {
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
-    menu.classList.toggle("active");
-}
 
-// Ajout de l'écouteur sur un bouton de toggle
-const menuToggleBtn = document.querySelector(".menu-toggle");
-if (menuToggleBtn) {
-    menuToggleBtn.addEventListener("click", toggleMenu);
-}
+    menuToggle.addEventListener("click", function () {
+        menu.classList.toggle("active"); // Ajoute ou supprime la classe 'active'
+    });
+});
 
 // Sélectionner toutes les cartes
 const cards = document.querySelectorAll('.card-avis');
