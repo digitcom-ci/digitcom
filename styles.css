@@ -562,36 +562,36 @@ footer {
 @media (max-width: 768px) {
   /* Général : Ajustement des marges */
   body {
-    font-size: 16px; /* Assurez une taille de texte lisible */
+    font-size: 16px;
     margin: 0;
     padding: 0;
   }
-  
-/* Style du menu */
+
+  /* Menu */
   .nav-links {
     display: flex;
-    flex-direction: column; /* Empile les éléments */
+    flex-direction: column;
     align-items: center;
     position: absolute;
     top: 60px;
     right: 0;
-    width: 200px;
+    width: 100%;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Cache les éléments en dehors du conteneur */
-    max-height: 0; /* Menu fermé par défaut */
-    transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1.5s ease;
     z-index: 100;
   }
 
   .nav-links.active {
-    max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
+    max-height: 500px;
   }
 
   .nav-links li {
-    opacity: 0; /* Éléments invisibles par défaut */
-    transform: translateY(-10px); /* Décalage vers le haut */
-    animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideIn 0.3s ease forwards;
   }
 
   .nav-links li:nth-child(1) {
@@ -607,7 +607,6 @@ footer {
     animation-delay: 0.4s;
   }
 
-  /* Animation pour faire glisser les éléments */
   @keyframes slideIn {
     from {
       opacity: 0;
@@ -619,38 +618,24 @@ footer {
     }
   }
 
-  /* Bouton toggle */
   .menu-toggle {
-    display: none;
+    display: block;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
-  }
-
-  .menu-toggle {
-    display: block;
     color: #1e2075;
     width: 50px;
-  }
-  .nav-links {
-    width: 100%; /* Menu plein écran sur mobile */
-    height: 100%;
-    text-align: left;
-  }
-
-  .nav-link-mobile {
-    display: block;
   }
 
   /* Header */
   header h1 {
-    font-size: 1.8rem; /* Réduire le titre */
+    font-size: 1.8rem;
     text-align: center;
   }
 
   header nav ul {
-    flex-direction: column; /* Empile les liens verticalement */
+    flex-direction: column;
     align-items: center;
     gap: 10px;
   }
@@ -661,25 +646,25 @@ footer {
 
   /* Hero Section */
   .hero h2 {
-    font-size: 1.2rem; /* Réduire le titre */
+    font-size: 1.2rem;
     line-height: 1;
     text-align: left;
   }
 
   .hero p {
-    font-size: 0.7rem; /* Texte plus petit */
+    font-size: 0.7rem;
     color: #000;
     text-align: left;
   }
 
   .hero .btn {
     font-size: 0.7rem;
-    padding: 5px 10px; /* Réduire la taille du bouton */
+    padding: 5px 10px;
   }
 
   .btn {
     font-size: 0.7rem;
-    padding: 5px 10px; /* Réduire la taille du bouton */
+    padding: 5px 10px;
   }
 
   /* Section Services */
@@ -688,69 +673,60 @@ footer {
   }
 
   .card-container {
-    grid-template-columns: 1fr; /* Une seule carte par ligne */
+    grid-template-columns: 1fr;
   }
 
   .card h3 {
-    font-size: 1.2rem; /* Réduire le titre des cartes */
+    font-size: 1.2rem;
   }
 
   .card p {
     font-size: 0.9rem;
   }
 
-  /* Conteneur pour le défilement horizontal */
+  /* Défilement horizontal */
   .horizontal-scroll {
     display: flex;
-    overflow-x: auto; /* Permet le défilement horizontal */
-    gap: 20px; /* Espace entre les cartes */
-    scroll-snap-type: x mandatory; /* Défilement fluide */
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
     padding-bottom: 10px;
   }
 
-  /* Cartes des services */
   .horizontal-scroll .card {
-    flex: 0 0 80%; /* Largeur de chaque carte */
+    flex: 0 0 80%;
     background: #fff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: center; /* Alignement au centre */
+    scroll-snap-align: center;
     transition: transform 0.3s ease;
   }
-  
-  /* Effet de survol */
+
   .horizontal-scroll .card:hover {
     transform: scale(1.05);
   }
-  
-  .cover img {
-    width: 80%;
-  }
 
-  /* Conteneur des cartes */
+  /* Cartes des avis */
   .avis-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 3fr)); /* Responsive */
-    gap: 20px; /* Espace entre les cartes */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 3fr));
+    gap: 20px;
     margin-top: 20px;
   }
 
-  /* Cartes de base (avant animation) */
   .card-avis {
-    width: 30%;
+    width: 100%;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
-    opacity: 0; /* Caché initialement */
-    transform: translateY(-50px); /* Déplacé vers le haut */
-    animation: dropEffect 0.6s ease forwards; /* Animation d'apparition */
-    margin-left: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: dropEffect 0.6s ease forwards;
   }
 
-  /* Ajout d'un délai pour chaque carte */
   .card-avis:nth-child(1) {
     animation-delay: 0.2s;
   }
@@ -761,15 +737,14 @@ footer {
     animation-delay: 0.6s;
   }
 
-  /* Animation "dépôt" */
   @keyframes dropEffect {
     from {
       opacity: 0;
-      transform: translateY(-50px); /* Départ plus haut */
+      transform: translateY(-50px);
     }
     to {
       opacity: 1;
-      transform: translateY(0); /* Arrêt à la position normale */
+      transform: translateY(0);
     }
   }
 
@@ -781,14 +756,11 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 5px;
-    margin-left: 10px;
   }
 
   .client img {
     width: 10%;
     border-radius: 100%;
-    margin-left: -250px;
-    margin-top: 5px;
   }
 
   .nom-business h3 {
@@ -796,52 +768,34 @@ footer {
     font-size: 1rem;
     color: #f1587d;
     margin-bottom: 5px;
-    margin-left: -250px;
   }
 
   .nom-business p {
     text-align: left;
     font-size: 0.7rem;
     color: #1e2075;
-    margin-left: -250px;
   }
 
-  /* Conteneur pour les étoiles */
+  /* Étoiles */
   .rating {
     display: flex;
-    gap: 5px; /* Espacement entre les étoiles */
+    gap: 5px;
     justify-content: center;
     margin-top: 10px;
   }
 
-  /* Étoiles */
   .star {
     font-size: 20px;
-    color: #ffd700; /* Couleur or pour les étoiles remplies */
-    cursor: pointer; /* Curseur interactif */
+    color: #ffd700;
+    cursor: pointer;
     transition: transform 0.2s ease;
   }
 
-  /* Cartes des avis */
-  .horizontal-scroll .card-avis {
-    flex: 0 0 80%; /* Largeur de chaque carte */
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: center; /* Alignement au centre */
-    transition: transform 0.3s ease;
-  }
-
-  /* Effet de survol */
-  .horizontal-scroll .card-avis:hover {
-    transform: scale(1.05);
-  }
-
+  /* Contact */
   .contact-container {
-    display: flex; /* Active Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: left; /* Centre verticalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .card-contact {
@@ -849,14 +803,13 @@ footer {
     background: #1e2075;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    display: flex; /* Active Flexbox */
-    align-items: center; /* Centre verticalement */
-    height: 12vh; /* Hauteur égale à la taille de la fenêtre */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 12vh;
   }
 
   .card-contact h3 {
-    margin-left: -20px;
     font-size: 0.7rem;
     color: #fff;
     text-align: left;
@@ -869,33 +822,17 @@ footer {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    margin-left: 5px;
   }
 
-  .hero {
-    flex-direction: row; /* Aligne tous les éléments sur une même ligne */
-    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
-    gap: 10px;
-    text-align: center;
-    margin-left: 10px;
-  }
-
-  .reseaux {
-    flex-shrink: 0; /* Empêche les images de se réduire trop */
-  }
-
-  .compagnie, .ressources {
-    flex-shrink: 0; /* Empêche les colonnes de se réduire trop */
-  }
-   
+  /* Formulaire */
   form input,
   form textarea,
   form button {
-    font-size: 1rem; /* Ajustement des champs */
+    font-size: 1rem;
   }
 
   form button {
-    padding: 10px; /* Taille du bouton contact */
+    padding: 10px;
   }
 
   /* Footer */
@@ -903,5 +840,3 @@ footer {
     font-size: 0.9rem;
   }
 }
-
-
