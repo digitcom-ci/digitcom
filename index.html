@@ -16,7 +16,7 @@
         <nav> 
         <ul class="nav-links"> 
           <li><a href="#home">Accueil</a></li> 
-          <li><a href="about.html">À propos</a></li> 
+          <li><a href="#about">À propos</a></li> 
           <li><a href="#services">Services</a></li> 
           <li><a href="#contact">Contact</a></li> 
            <li class="nav-link-mobile"><a href="#Connexion">Se connecter</a></li>
@@ -27,7 +27,6 @@
       </div> 
     </header> 
     <section id="home"> 
-      <div class="animate-drop">
       <div class="hero"> 
         <div class="banniere">
           <h2>Votre partenaire en communication digitale</h2> 
@@ -35,10 +34,9 @@
           <a href="#contact" class="btn">Contactez-nous</a>
         </div>
         <div class="cover">
-          <img src="images/cover1.JPG" alt="cover1" class="img-animate">
+          <img src="images/cover1.JPG" alt="cover1">
         </div>
       </div> 
-      </div>
     </section> 
 
     <section id="services">
@@ -47,19 +45,19 @@
           <div class="card-container">
             <div class="horizontal-scroll">
               <div class="card">
-                <img src="images/csi.JPG" alt="siteweb" class="img-animate">
+                <img src="images/csi.JPG" alt="siteweb">
                 <h3>Création de Site Web</h3>
                 <p>Des sites modernes, optimisés et responsifs.</p>
                 <a href="creation-de-site-web.html" class="btn">voir plus</a>
               </div>
               <div class="card">
-                <img src="images/md.JPG" alt="marketing digital" class="img-animate">
+                <img src="images/md.JPG" alt="marketing digital">
                 <h3>Marketing Digital</h3>
                 <p>Stratégies de marketing adaptées à vos besoins.</p>
                 <a href="marketing.html" class="btn">voir plus</a>
               </div>
               <div class="card">
-                <img src="images/smm.JPG" alt="social média management" class="img-animate">
+                <img src="images/smm.JPG" alt="social média management">
                 <h3>Gestion des reseaux sociaux</h3>
                 <p>Animation et gestion de vos reseaux sociaux.</p>
                 <a href="gestion-des-reseaux-sociaux.html" class="btn">voir plus</a>
@@ -74,7 +72,7 @@
     </section>
 
     <section id="prise-en-charge">
-      <div class="container-cover">
+      <div class="container">
         <div class="cover">
           <img src="images/cover4.png">
         </div>
@@ -92,7 +90,7 @@
           <a href="#contact" class="btn">Lire plus</a>
         </div>
         <div class="cover-trois">
-          <img src="images/cover3.JPG" alt="cover3" class="img-animate">
+          <img src="images/cover3.JPG" alt="cover3">
         </div>
       </div> 
     </section> 
@@ -179,7 +177,7 @@
       <div class="contactus-container">
       <div class="hero"> 
         <div class="reseaux">
-          <img src="images/logo.png" alt="logo" class="img-animate">
+          <img src="images/logo.png" alt="logo">
           <img src="images/reseaux.png" alt="reseaux">
         </div>
         <div class="compagnie">
@@ -210,83 +208,6 @@
     <footer> 
       <p>&copy; 2024 DIGITCOM. Tous droits réservés.</p> 
     </footer> 
-    
-    <script>
-      // Gestion du formulaire de contact
-document.getElementById('contact-form').addEventListener('submit', function (e) { 
-    e.preventDefault(); 
-    alert('Merci pour votre message, nous vous répondrons bientôt !'); 
-    this.reset(); 
-});
-
-// Sélection des liens de navigation pour ajouter l'état "actif" au lien cliqué
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Supprime l'état actif des autres liens
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            // Ajoute l'état actif au lien cliqué
-            link.classList.add('active');
-        });
-    });
-
-    // Menu hamburger
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav-links");
-
-    // Ajoute l'événement pour afficher/masquer le menu
-    menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("active"); // Ajoute ou supprime la classe active
-    });
-});
-
-// Sélectionner toutes les cartes pour l'animation au défilement
-const cards = document.querySelectorAll('.card-avis');
-
-// Créer un observateur d'intersection pour les cartes
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running'; // Lancer l'animation quand la carte est visible
-            }
-        });
-    },
-    { threshold: 0.1 } // Se déclenche lorsque 10% de la carte est visible
-);
-
-// Observer chaque carte
-cards.forEach((card) => {
-    card.style.animationPlayState = 'paused'; // Animation en pause par défaut
-    observer.observe(card);
-});
-
-// Sélectionner toutes les étoiles pour la notation
-const stars = document.querySelectorAll('.star');
-
-// Ajouter des gestionnaires d'événements pour chaque étoile
-stars.forEach((star) => {
-    star.addEventListener('click', () => {
-        const rating = star.dataset.value; // Récupère la valeur de la note (de l'étoile cliquée)
-        const parent = star.parentElement; // Trouve le conteneur des étoiles
-        const allStars = parent.querySelectorAll('.star');
-
-        // Met à jour l'état des étoiles en fonction de la note sélectionnée
-        allStars.forEach((s, index) => {
-            if (index < rating) {
-                s.innerHTML = '&#9733;'; // Étoile pleine
-            } else {
-                s.innerHTML = '&#9734;'; // Étoile vide
-            }
-        });
-
-        // Affiche la note sélectionnée dans la console (facultatif)
-        console.log(`Note sélectionnée : ${rating}`);
-    });
-});
-    </script> 
+    <script src="script.js"></script> 
   </body> 
 </html>
