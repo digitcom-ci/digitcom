@@ -1,73 +1,78 @@
 // Gestion du formulaire de contact
-document.getElementById('contact-form').addEventListener('submit', function (e) { 
-  e.preventDefault(); 
-  alert('Merci pour votre message, nous vous répondrons bientôt !'); 
-  this.reset(); 
-});
-
-// Sélectionnez tous les liens de navigation
-const navLinks = document.querySelectorAll('nav ul li a');
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    // Supprime l'état actif des autres liens
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    // Ajoute l'état actif au lien cliqué
-    link.classList.add('active');
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".menu");
-
-    menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("active"); // Ajoute ou supprime la classe 'active'
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contact-form");
+  
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Merci pour votre message, nous vous répondrons bientôt !");
+      this.reset();
     });
-});
+  }
 
-// Sélectionner toutes les cartes
-const cards = document.querySelectorAll('.card-avis');
-
-// Créer un observateur
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running'; // Lancer l'animation
-      }
+  // Gestion des liens de navigation
+  const navLinks = document.querySelectorAll("nav ul li a");
+  
+  if (navLinks.length) {
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        // Supprime l'état actif des autres liens
+        navLinks.forEach(link => link.classList.remove("active"));
+        // Ajoute l'état actif au lien cliqué
+        link.classList.add("active");
+      });
     });
-  },
-  { threshold: 0.1 } // Se déclenche lorsque 10% de la carte est visible
-);
+  }
 
-// Observer chaque carte
-cards.forEach((card) => {
-  card.style.animationPlayState = 'paused'; // Animation en pause par défaut
-  observer.observe(card);
-});
-
-// Sélectionnez toutes les étoiles
-const stars = document.querySelectorAll('.star');
-
-// Ajoutez des gestionnaires d'événements
-stars.forEach((star) => {
-  star.addEventListener('click', () => {
-    const rating = star.dataset.value; // Récupère la note (valeur de l'étoile cliquée)
-    const parent = star.parentElement; // Trouve le conteneur de l'étoile
-    const allStars = parent.querySelectorAll('.star');
-
-    // Met à jour l'état des étoiles
-    allStars.forEach((s, index) => {
-      if (index < rating) {
-        s.innerHTML = '&#9733;'; // Étoile pleine
-      } else {
-        s.innerHTML = '&#9734;'; // Étoile vide
-      }
+  // Gestion du menu mobile
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".menu");
+  
+  if (menuToggle && menu) {
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
     });
+  }
 
-    // Affiche une alerte ou enregistre la note (facultatif)
-    console.log(`Note sélectionnée : ${rating}`);
-  });
+  // Gestion des cartes avec IntersectionObserver
+  const cards = document.querySelectorAll(".card-avis");
+  
+  if (cards.length) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running"; // Lancer l'animation
+          }
+        });
+      },
+      { threshold: 0.1 } // Se déclenche lorsque 10% de la carte est visible
+    );
+
+    cards.forEach(card => {
+      card.style.animationPlayState = "paused"; // Animation en pause par défaut
+      observer.observe(card);
+    });
+  }
+
+  // Gestion des étoiles (notation)
+  const stars = document.querySelectorAll(".star");
+  
+  if (stars.length) {
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        const rating = star.dataset.value; // Récupère la note
+        const parent = star.parentElement; // Conteneur des étoiles
+        const allStars = parent.querySelectorAll(".star");
+
+        // Met à jour l'état des étoiles
+        allStars.forEach((s, index) => {
+          s.innerHTML = index < rating ? "&#9733;" : "&#9734;"; // Étoile pleine ou vide
+        });
+
+        // Affiche une note dans la console (peut être remplacé par d'autres actions)
+        console.log(`Note sélectionnée : ${rating}`);
+      });
+    });
+  }
 });
