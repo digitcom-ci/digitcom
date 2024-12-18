@@ -476,35 +476,46 @@ form button {
   margin: 0.5rem 0;
 }
 
-/* Le menu burger (hamburger menu) */
+/* Style par défaut pour le menu */
 .menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
+  display: none; /* Caché sur les grands écrans */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
-/* Style pour les petits écrans */
-@media (max-width: 768px) {
-    /* Cacher le menu sur petit écran */
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        right: 0;
-        top: 60px;
-        background-color: #22BED7;
-        width: 200px;
-        padding: 10px;
-        z-index: 1000; /* Assurez-vous que le menu a une valeur de z-index plus élevée que l'image */
-    }
+/* Par défaut, le lien spécial est masqué */
+.nav-link-mobile {
+  display: none;
+}
 
-    .menu li {
-        margin: 10px 0;
-    }
-    
-    /* Le menu toggle doit être affiché sur les petits écrans */
-    @media (max-width: 768px) {
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #1e2075;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+/* MÉDIA QUERY POUR LES PETITS ÉCRANS (TÉLÉPHONES) */
+@media (max-width: 768px) {
+  /* Général : Ajustement des marges */
+  body {
+    font-size: 16px; /* Assurez une taille de texte lisible */
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    /* Style du menu */
     .nav-links {
       display: flex;
       flex-direction: column; /* Empile les éléments */
@@ -549,41 +560,43 @@ form button {
       from {
         opacity: 0;
         transform: translateY(-10px);
-       }
-       to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Bouton toggle */
     .menu-toggle {
-      display: block; /* Le menu burger s'affiche en mode mobile */
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
     }
 
-    .menu {
-      display: none; /* Le menu se cache par défaut en version mobile */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        color: #1e2075;
+        width: 50px;
+        
+        
+      }
+      .nav-links {
+        width: 100%; /* Menu plein écran sur mobile */
+        height: 100%;
+        text-align: left;
+      }
     }
 
-    .menu.active {
-      display: flex; /* Le menu apparaît quand il est activé */
+    /* Afficher uniquement sur les petits écrans */
+    @media (max-width: 768px) {
+      .nav-link-mobile {
+        display: block;
+      }
     }
-  }
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #1e2075;
-  color: #fff;
-  font-weight: bold;
-}
-
-/* MÉDIA QUERY POUR LES PETITS ÉCRANS (TÉLÉPHONES) */
-@media (max-width: 768px) {
-  /* Général : Ajustement des marges */
-  body {
-    font-size: 16px; /* Assurez une taille de texte lisible */
-    margin: 0;
-    padding: 0;
-  }
 
   /* Header */
   header h1 {
