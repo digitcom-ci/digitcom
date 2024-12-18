@@ -5,27 +5,31 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     this.reset(); 
 });
 
-// Sélection des liens de navigation pour ajouter l'état "actif" au lien cliqué
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll('nav ul li a');
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }
+        function toggleMenu() {
+            var menu = document.querySelector(".menu");
+            menu.classList.toggle("active");
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("fullscreenMenu");
+        }
+        function scrollLeft() {
+            const slider = document.querySelector('.slider-container');
+            slider.scrollLeft -= 200; // Scroll to the left by 200px
+        }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Supprime l'état actif des autres liens
-            navLinks.forEach(link => link.classList.remove('active'));
+        function scrollRight() {
+            const slider = document.querySelector('.slider-container');
+            slider.scrollLeft += 200; // Scroll to the right by 200px
+        }
 
-            // Ajoute l'état actif au lien cliqué
-            link.classList.add('active');
-        });
-    });
-
-    // Menu hamburger
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav-links");
-
-    // Ajoute l'événement pour afficher/masquer le menu
-    menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("active"); // Ajoute ou supprime la classe active
     });
 });
 
