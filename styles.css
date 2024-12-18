@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -125,20 +125,6 @@ header nav ul li a.active {
 
 .hero img {
   width: 100%;
-  opacity: 0;
-  transform: translateY(-50px) scale(0.9);
-  animation: imageDropEffect 3s ease forwards;
-}
-
-@keyframes imageDropEffect {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 section {
@@ -189,20 +175,6 @@ h2 {
 
 .card img {
   width: 70%;
-  opacity: 0;
-  transform: translateY(-50px) scale(0.9);
-  animation: imageDropEffect 3s ease forwards;
-}
-
-@keyframes imageDropEffect {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 /* Titre de la carte */
@@ -258,36 +230,11 @@ h2 {
   align-items: center;
 }
 
-.container p {
-  font-size: 1.2rem;
-  color: #000;
-  margin: 1.5rem;
-  text-align: left;
-}
-
-.cover-deux img {
-  width: 80%;
-}
-
-.cover img {
-  width: 60%
-}
-
 .container img {
   width: 60%;
   height: auto;
   margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 15s ease-out, transform 15s ease-out;
 }
-
-/* Détecte lorsque l'image est dans la fenêtre */
-.container img.in-viewport {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 /* Conteneur des cartes */
 .avis-container {
@@ -567,6 +514,7 @@ footer {
     padding: 0;
   }
 
+  @media (max-width: 768px) {
     /* Style du menu */
     .nav-links {
       display: flex;
@@ -616,6 +564,37 @@ footer {
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Bouton toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        color: #1e2075;
+        width: 50px;
+       
+       
+      }
+      .nav-links {
+        width: 100%; /* Menu plein écran sur mobile */
+        height: 100%;
+        text-align: left;
+      }
+    }
+
+    /* Afficher uniquement sur les petits écrans */
+    @media (max-width: 768px) {
+      .nav-link-mobile {
+        display: block;
       }
     }
 
