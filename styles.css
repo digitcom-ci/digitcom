@@ -1,4 +1,4 @@
-*{
+o*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -529,13 +529,12 @@ form button {
   margin: 0.5rem 0;
 }
 
-/* Style par défaut pour le menu */
+/* Le menu burger (hamburger menu) */
 .menu-toggle {
-  display: none; /* Caché sur les grands écrans */
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
 }
 
 /* Par défaut, le lien spécial est masqué */
@@ -566,7 +565,35 @@ footer {
     margin: 0;
     padding: 0;
   }
+  
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #22BED7;
+    width: 200px;
+    padding: 10px;
+    z-index: 1000; /* Assurez-vous que le menu a une valeur de z-index plus élevée que l'image */
+  }
 
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block; /* Le menu burger s'affiche en mode mobile */
+  }
+
+  .menu {
+    display: none; /* Le menu se cache par défaut en version mobile */
+  }
+
+  .menu.active {
+    display: flex; /* Le menu apparaît quand il est activé */
+  }
+  
   /* Bouton toggle */
   .menu-toggle {
     display: block;
