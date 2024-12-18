@@ -476,25 +476,93 @@ form button {
   margin: 0.5rem 0;
 }
 
-/* Style par défaut pour le menu */
+/* Style par défaut du menu */
 .menu-toggle {
-  display: none; /* Caché sur les grands écrans */
+  display: none;
   background: none;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
 }
 
-/* Par défaut, le lien spécial est masqué */
-.nav-link-mobile {
-  display: none;
-}
-
+/* Nav par défaut */
 .nav-links {
   display: flex;
   gap: 20px;
   list-style: none;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
+
+/* Menu mobile : fermé par défaut */
+.nav-links.mobile {
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  width: 100%;
+  max-height: 0; /* Fermé */
+  opacity: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Menu mobile ouvert */
+.nav-links.mobile.active {
+  max-height: 300px; /* Hauteur ajustable selon les liens */
+  opacity: 1;
+}
+
+/* Animation des éléments */
+.nav-links.mobile li {
+  opacity: 0;
+  animation: slideIn 0.3s ease forwards;
+}
+
+.nav-links.mobile li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.nav-links.mobile li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.nav-links.mobile li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.nav-links.mobile li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Affichage du bouton toggle sur mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: #1e2075;
+    background: none;
+    border: none;
+  }
+
+  .nav-links {
+    display: none; /* Cacher sur mobile par défaut */
+  }
+
+  .nav-links.mobile {
+    display: flex;
+  }
+}
+
 
 footer {
   text-align: center;
@@ -513,90 +581,6 @@ footer {
     margin: 0;
     padding: 0;
   }
-
-  @media (max-width: 768px) {
-    /* Style du menu */
-    .nav-links {
-      display: flex;
-      flex-direction: column; /* Empile les éléments */
-      align-items: center;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* Cache les éléments en dehors du conteneur */
-      max-height: 0; /* Menu fermé par défaut */
-      transition: max-height 1.5s ease; /* Transition pour l'effet de déroulement */
-      z-index: 100;
-    }
-
-    .nav-links.active {
-      max-height: 500px; /* Menu déroulé (ajustez la hauteur si nécessaire) */
-    }
-
-    .nav-links li {
-      opacity: 0; /* Éléments invisibles par défaut */
-      transform: translateY(-10px); /* Décalage vers le haut */
-      animation: slideIn 0.3s ease forwards; /* Animation d'entrée */
-    }
-
-    .nav-links li:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    .nav-links li:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    .nav-links li:nth-child(3) {
-      animation-delay: 0.3s;
-    }
-    .nav-links li:nth-child(4) {
-      animation-delay: 0.4s;
-    }
-
-    /* Animation pour faire glisser les éléments */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Bouton toggle */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        color: #1e2075;
-        width: 50px;
-        
-        
-      }
-      .nav-links {
-        width: 100%; /* Menu plein écran sur mobile */
-        height: 100%;
-        text-align: left;
-      }
-    }
-
-    /* Afficher uniquement sur les petits écrans */
-    @media (max-width: 768px) {
-      .nav-link-mobile {
-        display: block;
-      }
-    }
 
   /* Header */
   header h1 {
