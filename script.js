@@ -18,13 +18,32 @@ navLinks.forEach(link => {
   });
 });
 
-// Sélectionne le bouton menu hamburger et le conteneur de navigation
-const menuToggle = document.querySelector('.menu-toggle');
-const navContainer = document.querySelector('.nav-links'); // Changement ici pour éviter le conflit
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }
+        function toggleMenu() {
+            var menu = document.querySelector(".menu");
+            menu.classList.toggle("active");
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("fullscreenMenu");
+        }
+        function scrollLeft() {
+            const slider = document.querySelector('.slider-container');
+            slider.scrollLeft -= 200; // Scroll to the left by 200px
+        }
 
-// Ajoute un gestionnaire d'événements pour basculer l'état
-menuToggle.addEventListener('click', () => {
-  navContainer.classList.toggle('active');
+        function scrollRight() {
+            const slider = document.querySelector('.slider-container');
+            slider.scrollLeft += 200; // Scroll to the right by 200px
+        }
+
+    });
 });
 
 // Sélectionner toutes les cartes
