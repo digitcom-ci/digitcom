@@ -1,4 +1,4 @@
-o*{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -529,12 +529,13 @@ form button {
   margin: 0.5rem 0;
 }
 
-/* Le menu burger (hamburger menu) */
+/* Style par défaut pour le menu */
 .menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
+  display: none; /* Caché sur les grands écrans */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 /* Par défaut, le lien spécial est masqué */
@@ -566,42 +567,9 @@ footer {
     padding: 0;
   }
   
-  .menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background-color: #22BED7;
-    width: 200px;
-    padding: 10px;
-    z-index: 1000; /* Assurez-vous que le menu a une valeur de z-index plus élevée que l'image */
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
-
-  .menu-toggle {
-    display: block; /* Le menu burger s'affiche en mode mobile */
-  }
-
-  .menu {
-    display: none; /* Le menu se cache par défaut en version mobile */
-  }
-
-  .menu.active {
-    display: flex; /* Le menu apparaît quand il est activé */
-  }
-  
-  /* Bouton toggle */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Style du menu */
+/* Style du menu */
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column; /* Empile les éléments */
     align-items: center;
     position: absolute;
@@ -629,7 +597,6 @@ footer {
   .nav-links li:nth-child(1) {
     animation-delay: 0.1s;
   }
-  
   .nav-links li:nth-child(2) {
     animation-delay: 0.2s;
   }
@@ -650,6 +617,30 @@ footer {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Bouton toggle */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: #1e2075;
+    width: 50px;
+  }
+  .nav-links {
+    width: 100%; /* Menu plein écran sur mobile */
+    height: 100%;
+    text-align: left;
+  }
+
+  .nav-link-mobile {
+    display: block;
   }
 
   /* Header */
