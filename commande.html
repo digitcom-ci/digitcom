@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitcom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+        </div>
+
+        <div class="logo">
+            <img src="images/logob1.png" alt="Logo" class="logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">L'agence</a></li>
+                <li><a href="services.html">Nos services</a></li>
+                <li><a href="lafabrik.html">La fabrik</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="devis.html" class="btn-devis">Demander un devis</a>
+    </header>
+
+    <section class="heropage">
+        <div class="overlay"></div>
+    </section>
+
+    <div class="title">
+        <p><a href="contact.html" class="titlelink">Contact</a> / Commande a la fabrik</p>
+    </div>
+
+    <div class="container">
+        <h1>Commande a la fabrik</h1>
+        <p>Pour valider votre commande assurez vous que vous de le faire avec votre telephone portable</p>
+        <form id="commande-form" action="commande.php" method="POST">
+            <label for="name">Nom et prénom :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Téléphone :</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="guests">Article :</label>
+            <select id="guests" name="guests">
+                <option value="Carte de visite">Carte de visite</option>
+                <option value="kakemono">kakemono</option>
+                <option value="T-shirt personnalisé">T-shirt personnalisé</option>
+                <option value="Sac personnalisé">Sac personnalisé</option>
+                <option value="Flyers">Flyers</option>
+                <option value="Dépliant">Dépliant</option>
+                <option value="Carnet personnalisé">Carnet personnalisé</option>
+                <option value="Calendrier personnalisé">Calendrier personnalisé</option>
+                <option value="Calendrier personnalisé">Affiche publicitaire</option>
+                <option value="Tampon">Tampon</option>
+                <option value="Stylo personnalisé">Stylo personnalisé</option>
+                <option value="Tasses personnalisé">Tasses personnalisé</option>
+            </select>
+
+            <label for="qty">Quantité :</label>
+            <select id="qty" name="qty">
+                <option value="1">1</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="+100">+100</option>
+            </select>
+
+            <label for="livre">Livrable :</label>
+            <p>La livraison de votre commande s'effectura dans un delai de 3 à 10 jours</p>
+            <select id="livre" name="livre">
+                <option value="3 jours">3 jours</option>
+                <option value="5 jours">5 jours</option>
+                <option value="10 jours">10 jours</option>
+            </select>
+
+            <label for="description">Lieu de livraison :</label>
+            <input type="textarea" id="description" name="description">
+
+            <h4>
+               Après avoir cliqué sur le bouton "Demander un devis", vous serez redirigé vers la messagérie whatsapp, veuillez envoyer votre formulaire pour que nous puissions vous confirmer votre demande.
+            </h4>
+
+            <button type="submit">Demander un devis</button>
+        </form>
+
+        <p id="confirmation-message" class="hidden">Votre demande a été envoyée !</p>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Grand Bassam, Côte d'Ivoire</p>
+                <p>+225 07 05 73 33 98</p>
+                <p>contact@digitcom.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Vendredi : 09h - 17h30</p>
+                <p>Samedi : 09h - 12h</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2025 DigitCom. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

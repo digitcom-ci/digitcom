@@ -1,0 +1,843 @@
+/* Reset des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+}
+/* Styles de l'en-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.logo img {
+    width: auto;
+    height: 100px;
+    margin-left: 30px;
+    margin-bottom: -5px;
+    margin-top: 10%;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+/* Lorsque le menu est actif */
+.nav-links.active {
+    opacity: 1; /* Rendu visible */
+    transform: translateX(0); /* Ramène à sa place */
+    pointer-events: auto;
+}
+.nav-links li {
+    margin: 20px 30px;
+}
+/* Style des liens */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+/* Barre sous le lien actif */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Ajuste la position sous le texte */
+    width: 0%; /* Caché au début */
+    height: 3px; /* Épaisseur de la barre */
+    background: #fff; /* Couleur de la barre */
+    transition: width 0.3s ease-in-out;
+}
+/* Effet au survol et pour le lien actif */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%; /* La barre s'affiche sous tout le lien */
+}
+/* Styles du menu hamburger */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+/* Création des trois barres du hamburger */
+.hamburger::before,
+.hamburger::after,
+.hamburger span {
+    content: "";
+    position: absolute;
+    width: 23px;
+    height: 2px;
+    background: #2A327B;
+    transition: 0.3s ease-in-out;
+}
+.hamburger::before {
+    top: 5px;
+}
+.hamburger span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.hamburger::after {
+    bottom: 5px;
+}
+/* Transformation en croix */
+.hamburger.open::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.hamburger.open::after {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+.hamburger.open span {
+    opacity: 0; /* Cache la barre du milieu */
+}
+/* Bouton de réservation */
+.btn-devis {
+    background: #fff;
+    color: #1e2076;
+    border: 1px solid #1e2076;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-devis:hover {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+/* Section Hero */
+.hero {
+    height: 100vh;
+    background: url('images/hero.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-top: -10%;
+    z-index: 1;
+}
+/* Overlay sombre */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99%;
+    background: rgba(0, 0, 0, 0.3); /* Opacité de 50% */
+}
+/* Contenu du hero (au-dessus de l’overlay) */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Assure que le texte reste au-dessus */
+}
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.titlelink{
+    color: #f15a7d;
+    margin-left: 3%;
+    text-decoration: none;
+}
+.title p{
+    margin-top: 2%;
+}
+/* section a propos */
+.about {
+    padding: 40px;
+    text-align: center;
+    margin-bottom: -5%;
+}
+.about h2 {
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-top: 1%;
+    margin-bottom: -2%;
+}
+.about h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+/*--------------------------------------*/
+.about h3{
+    color: #f15a7d;
+    font-size: 1rem;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+}
+/*--------------------------------------*/
+.about-content{
+    display: flex;
+}
+.about-content img {
+    margin-top: 5%;
+    width: 30%;
+    height: 400px;
+    margin-left: 17%;
+    padding: 10px;
+}
+.about-text {
+    font-size: 20px;
+    width: 60%;
+    text-align: left;
+    padding: 15%;
+    margin-left: -10%;
+    margin-top: -7%;
+}
+.about-content p{
+    font-size: 1rem;
+}
+/*-------------------------------------*/
+.number{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+.separator {
+    width: 2px;
+    height: 100px;
+    background-color: #fecd1a; /* Couleur de la barre */
+    margin: 0 50px;
+}
+.number .one h1{
+    font-size: 5rem;
+    color: #fecd1a;
+}
+.number .two h1{
+    font-size: 5rem;
+    color: #fecd1a;
+}
+/*-------------------------------------*/
+.btn-about {
+    display: inline-block;
+    padding: 10px 10px;
+    background: transparent;
+    color: #f15a7d;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid #f15a7d;
+    margin-top: 15px;
+}
+.btn-about:hover {
+    background: #f15a7d;
+    color: #fff;
+}
+
+/* section services */
+.services {
+    display: flex;
+    background: #1e2076;
+}
+.services-text {
+    font-size: 20px;
+    width: 60%;
+    text-align: left;
+    padding: 5%;
+    margin-left: 10%;
+    margin-top: -3%;
+}
+.services-text p{
+    font-size: 1rem;
+    color: #fff;
+}
+.services-text h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+}
+.services-text h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.services-text h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1%;
+}
+.services-text ul li{
+    color: #fff;
+    font-size: 0.8rem;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+.logo-service img {
+    width: 90%;
+    height: auto;
+    margin-left: 0%;
+    padding: 10px;
+    margin-top: 25%;
+}
+.img-service img{
+    margin-top: 5%;
+    width: 70%;
+    height: auto;
+    margin-left: -2%;
+    padding: 10px;
+}
+.btn-service {
+    display: inline-block;
+    padding: 10px 10px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid #fff;
+    margin-top: 15px;
+}
+.btn-service:hover {
+    background: #f15a7d;
+    color: #fff;
+    border: 1px solid #f15a7d;
+}
+/*---------------------------------------------*/
+.servicesw {
+    display: flex;
+    background: #fff;
+}
+.servicesw-text {
+    font-size: 20px;
+    width: 100%;
+    text-align: left;
+    padding: 5%;
+    margin-left: 10%;
+}
+.servicesw-text p{
+    font-size: 1rem;
+    color: #000;
+}
+.servicesw-text h2 {
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-bottom: 2%;
+}
+.servicesw-text h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.servicesr {
+    display: flex;
+    background: #1e2076;
+    margin-top: -5%;
+}
+.servicesr-text {
+    margin-top: 1%;
+    font-size: 20px;
+    width: 40%;
+    text-align: left;
+    padding: 0%;
+    margin-left: 0%;
+}
+.servicesr-text p{
+    font-size: 1rem;
+    color: #fff;
+}
+.servicesr-text h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 0%;
+}
+.servicesr-text h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.img-servicer img{
+    margin-top: 10%;
+    width: 60%;
+    height: 75%;
+    margin-left: 25%;
+    padding: 10px;
+    margin-bottom: -20%
+}
+.servicesri {
+    display: flex;
+    background: #fff;
+    margin-bottom: -10%;
+}
+.img-servicesri img{
+    margin-top: 10%;
+    width: 60%;
+    height: 65%;
+    margin-left: 25%;
+    padding: 10px;
+}
+.servicesri-text {
+    margin-top: 3%;
+    font-size: 20px;
+    width: 40%;
+    text-align: left;
+    padding: 0%;
+    margin-left: -5%;
+}
+.servicesri-text p{
+    font-size: 1rem;
+    color: #000;
+}
+.servicesri-text h2 {
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-bottom: -2%;
+}
+.servicesri-text h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.servicesri-text h3 {
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 1%;
+}
+.servicesri-text ul li{
+    color: #000;
+    font-size: 0.8rem;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+/*-----------------------------------------*/
+.barcontact{
+    background: #fff;
+    text-align: center;
+    justify-content: center;
+}
+
+.bar h2{
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+.bar h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.bar p{
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 0%;
+}
+/*-----------------------------------------*/
+
+/*-------------------------Grille des logos-----------------------*/
+.clients h2 {
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+.clients h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.clients-logos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 logos par ligne */
+    gap: 30px; /* Espacement entre les logos */
+    justify-items: center; /* Centrer les logos */
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+}
+/* Style des images des logos */
+.clients-logos img {
+    max-width: 110px; /* Taille max des logos */
+    height: auto;
+    filter: grayscale(100%); /* Effet noir & blanc */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+/* Effet au survol */
+.clients-logos img:hover {
+    transform: scale(1.1); /* Zoom léger */
+    filter: grayscale(0%); /* Remettre en couleur */
+}
+
+/*---------------------Section Projets----------------- */
+.projects {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #fff;
+    margin-bottom: 5%;
+}
+.projects h2 {
+    color: #1e2076;
+    font-size: 2.5rem;
+    margin-top: 3%;
+    text-align: center;
+}
+.projects h2 i{
+    color: #fecd1a;
+    font-size: 5rem;
+}
+.projects p{
+    font-size: 1rem;
+    margin-bottom: 40px;
+    color: #000;
+}
+/* Grille de projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 colonnes */
+    gap: 30px;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+.project-item {
+    position: relative;
+}
+/* Conteneur de l'image et des informations */
+.project-thumb {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+    width: 100%;  /* Assure que l'image remplisse tout le conteneur */
+    height: 350px;  /* Fixe une hauteur pour toutes les images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Image du projet */
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Pour que l'image remplisse l'espace sans déformation */
+    display: block;
+    transition: transform 0.8s ease-in-out;
+}
+/* Carte d'information du projet */
+.project-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);  /* Fond blanc mi-transparent */
+    opacity: 0;
+    color: #000;
+    padding: 20px;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out;
+    transform: rotateY(90deg);  /* Carte cachée et tournée à 90° */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* Effet au survol sur le conteneur */
+.project-thumb:hover .project-info {
+    opacity: 1;
+    transform: rotateY(0);  /* Carte se retourne pour devenir visible */
+}
+/* Information du projet */
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.btn-services {
+    display: inline-block;
+    padding: 10px 10px;
+    background: transparent;
+    color: #f15a7d;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid #f15a7d;
+    margin-top: 15px;
+}
+.btn-services:hover {
+    background: #f15a7d;
+    color: #fff;
+}
+
+/*----------------------------Footer---------------------------*/
+footer {
+    background: url('images/footer.jpg') center/cover no-repeat;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-bewtween;
+    flex-wrap: wrap;
+    gap: 300px;
+    margin-left: 50px;
+    text-align: center;
+}
+.footer-section {
+    margin-bottom: 40px;
+}
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+/* Conteneur des icônes */
+.social-icons {
+    margin-top: 10px;
+    z-index: 1000;
+}
+/* Style des icônes */
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    transition: 0.3s;
+}
+/* Effet au survol */
+.social-icons a:hover {
+    color: #000;
+}
+.copyright {
+    margin-top: 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/*-------------------------l'agence--------------------*/
+.heropage {
+    height: 40vh;
+    background: url('images/heropage.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-top: -10%;
+    z-index: 1;
+}
+/* Overlay sombre */
+.heropage .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 39%;
+    background: rgba(0, 0, 0, 0.3); /* Opacité de 50% */
+}
+
+/*--------------------formulaire----------------*/
+.container {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 1000px;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 13%;
+    margin-bottom: 50px;
+}
+.container h1 {
+    margin-bottom: 20px;
+    color: #2A327B;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    text-align: left;
+    margin: 5px 0;
+}
+input, select, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+}
+button {
+    background-color: #1e2076;
+    color: white;
+    border: 1px solid #1e2076;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #fff;
+    color: #1e2076;
+    border: 1px solid #1e2076;
+}
+.hidden {
+    display: none;
+    color: green;
+    font-weight: bold;
+}
+.container h4 {
+    margin: 20px;
+    color: #5c5c5c;
+    font-size: 18px;
+}
+/*------------------contact----------------*/
+/* Réservation */
+.reservation {
+    background: #2A327B;
+    color: #fff;
+    padding: 40px;
+    margin-top: 30px;
+}
+.reservation-container{
+    display: flex;
+    padding: 0%;
+    gap: 100px;
+    text-align: center;
+    justify-content: center;
+}
+.reservation-content{
+    display: block;
+}
+.reservation-content h2 {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 15%;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .logo img {
+        width: 80px;
+        height: 50px;
+        margin-left: 80px;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        margin-top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: url('images/menu.JPG') center/cover no-repeat;
+        padding: 10px;
+        opacity: 0; /* Invisible au début */
+        transform: translateX(-100%); /* Déplacé vers la gauche */
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        pointer-events: none; /* Empêche les clics quand caché */
+        text-align: center;
+        list-style: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 15px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #2A327B;
+        font-size: 18px;
+    }
+
+    .hamburger {
+        display: block; /* Affichage sur petit écran */
+    }
+
+    /* Bouton de réservation */
+    .btn-reservation {
+        background: #2A327B;
+        color: #fff;
+        padding: 7px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn-reservation:hover {
+        background: #fff;
+        color: #2A327B;
+        border: 1px solid #2A327B;
+    }
+
+    /* Section Hero */
+    .hero {
+        height: 94vh;
+        background: url('images/restaurant.JPG') center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        margin-top: 40px;
+        z-index: 1;
+
+    }
+
+    /* Overlay sombre */
+    .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Opacité de 50% */
+    }
+
+    /* Contenu du hero (au-dessus de l’overlay) */
+    .hero-content {
+        position: relative;
+        z-index: 2; /* Assure que le texte reste au-dessus */
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #2A327B;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgb(255, 255, 255, 0.3);
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #fff;
+        color: #2A327B;;
+    }
+}
